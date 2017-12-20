@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, "黑体";
+    -webkit-overflow-scrolling: touch;  
+}
+html, body, .main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(244, 244, 244, 1); */
+}
+.main{
+    background-color: rgba(244, 244, 244, 1);
+}
+.choose-ticket{
+    width: 100%;
+    height: 6rem;
+
+}
+.ticket-button{
+    width: 42%;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(255, 157, 58, 1);
+    margin:1rem 4%;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+.remain,.spend-time{
+    width: 92%;
+    margin:3px 4%;
+}
+.ticket-list{
+    width:100%;
+    overflow: scroll;
+    
+}
+.ticket-item{
+    width: 100%;
+    height: 6.5rem;
+    background-color: white;
+    margin: .8rem 0;
+    box-sizing: border-box;
+    padding: 5px 0;
+}
+.start,.end{
+    width: 92%;
+    margin:0 4%;
+    height: 2rem;
+    line-height: 2rem; 
+}
+.start span,.end span{
+    
+    vertical-align: top;
+}
+.start span.price{
+    color: rgba(255, 157, 58, 1);
+    float: right;
+    vertical-align: top;
+}
+.spend-time{
+    margin: 7px 4%;
+}
+
+.footer-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.my-tour,.my-order{
+    width: 50%;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(255, 157, 58, 1);
+    border: 1px solid black;
+}
