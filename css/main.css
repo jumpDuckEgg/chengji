@@ -18,7 +18,7 @@ html, body, .main{
     background-color: rgba(244, 244, 244, 1);
 }
 img{
-    height: 20px;
+    height: 30px;
     color: rgba(255, 157, 58, 1);
 }
 /* 标题样式 */
@@ -42,3 +42,38 @@ img{
     text-align: center;
     padding: .5rem;
 }
+/* 提示选择语和时间样式 */
+.remain{
+    width: 88%;
+    margin:1rem auto;
+}
+/* 选择按钮样式 */
+.choose-ticket{
+    width: 88%;
+    height: 5rem;
+    margin: auto;
+}
+.ticket-button{
+    width: 29%;
+    float: left;
+    text-align: center;
+    /* box-sizing: border-box; */
+    background-color:rgba(204, 204, 204, 1);
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+.ticket-button:first-child{
+    margin-left: 0;
+}
+.ticket-button:last-child{
+    margin-right: 0;
+}
+
+.choose-color{
+    background-color:  rgba(255, 157, 58, 1);
+}
+/* 地址选择样式 */
