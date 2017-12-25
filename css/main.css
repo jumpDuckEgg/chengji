@@ -69,6 +69,10 @@ img{
 }
 .ticket-type .place{
     text-indent: 1rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
 }
 .ticket-order{
     width: 100%;
@@ -108,7 +112,7 @@ img{
   text-align: center;
 }
 .ticket-times span{
-   font-size: 1.3rem;
+   font-size: 1.5rem;
 }
 .ticket-date{
     width: 100%;

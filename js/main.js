@@ -5,7 +5,7 @@ $(function () {
     buttonEvent();
 });
 function init() {
- 
+
     //初始化车票列表高度
     $('.ticket-list').css('height', $('body').height() - ($('.remain').height() + $('.footer-bar').height() + $('.choose-ticket').height()));
     $('.time-place_up span,.time-place_down span').css('width', $('.time-place_up').width() - $('.time-place_up img').width() - 5);
