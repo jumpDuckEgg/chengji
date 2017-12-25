@@ -3,6 +3,8 @@ $(function () {
     init();
     // 选择按钮切换样式
     buttonEvent();
+    //切换使用中已使用标签样式
+    ticketTab();
 });
 function init() {
 
@@ -33,6 +35,22 @@ function buttonEvent() {
             $onceTicket.removeClass('choose-color');
             $monthTicketList.css('display', 'block').scrollTop(0);
             $onceTicketList.css('display', 'none');
+        }
+    })
+}
+function ticketTab(){
+    var $itemleft=$('.item-left');
+    var $itemright=$('.item-right');
+    $itemleft.click(function () {
+        if (!$itemleft.hasClass('item-choose')) {
+            $itemleft.addClass('item-choose');
+            $itemright.removeClass('item-choose');    
+        }
+    })
+    $itemright.click(function () {
+        if (!$itemright.hasClass('item-choose')) {
+            $itemright.addClass('item-choose');
+            $itemleft.removeClass('item-choose');
         }
     })
 }
