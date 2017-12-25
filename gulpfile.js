@@ -26,7 +26,7 @@ gulp.task('resource', function(){
 });
 //编译css
 gulp.task('css', function(){
-	return gulp.src('css/main.css')
+	return gulp.src('css/*.css')
 		.pipe(plumber({
 			errorHandler: notify.onError('Error: <%= error.message %>')
 		}))
