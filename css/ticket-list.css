@@ -1,0 +1,118 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, "黑体";
+    -webkit-overflow-scrolling: touch;  
+}
+html, body, .main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.main{
+    background-color: rgba(244, 244, 244, 1);
+}
+
+.ticketTab{
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: white;
+    border-bottom: 2px solid rgba(255, 157, 58, 1);
+    box-sizing: border-box;
+}
+.ticketTab_item{
+    width: 33.3%;
+    float: left;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.ticketTab_item-select{
+    color: white;
+    background-color: rgba(255, 157, 58, 1);
+}
+/* 车票列表样式 */
+.ticket-list{
+    width:100%;
+    overflow: scroll;
+    
+}
+/* 单程票样式 */
+
+.onceTicket-item{
+    width: 100%;
+    height: 6.5rem;
+    background-color: white;
+    margin-bottom: .8rem;
+    box-sizing: border-box;
+    padding: 5px 0;
+}
+.start,.end{
+    width: 92%;
+    margin:0 4%;
+    height: 2rem;
+    line-height: 2rem; 
+}
+.start-place,.end-place{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display:inline-block;
+    /* vertical-align: top; */
+}
+.start img,.end img{
+   width: 15px;
+   height: 15px;
+   position: relative;
+   top:-7px;
+}
+.start span.price{
+    color: rgba(255, 157, 58, 1);
+    float: right;
+}
+
+.spend-time{
+    margin: 7px 4%;
+}
+/* 月票/套票样式 */
+.monthTicket-item,.groupTicket-item{
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: white;
+    margin-bottom: .8rem;
+}
+
+.monthTicket-place,.groupTicket-place{
+    width: 62%;
+    float: left;
+    text-align: left;
+    margin-left: 4%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.monthTicket-times,.groupTicket-times{
+    width: 30%;
+    float: left;
+    text-align: right;
+    margin-right: 4%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: rgba(255, 157, 58, 1);
+}
+
+/* 底部 */
+.footer{
+    width: 100%;
+    height: 2rem;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(255, 157, 58, 1);
+}

@@ -1,0 +1,202 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, "黑体";
+    -webkit-overflow-scrolling: touch;  
+}
+html, body, .main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.main{
+    background-color: rgba(244, 244, 244, 1);
+}
+.back-icon{
+    height: 20px;
+}
+/* 标题样式 */
+.headbar{
+    background-color: white;
+    height: 2rem;
+}
+.page-back{
+    position: absolute;
+    top: .5rem;
+    left:.5rem;
+    color: rgba(255, 157, 58, 1);
+    vertical-align: top;
+    line-height: 1.5rem;
+}
+.page-back span{
+
+    vertical-align: top;
+}
+.page-title{
+    text-align: center;
+    padding: .5rem;
+}
+/* 提示选择语和时间样式 */
+.remain{
+    width: 88%;
+    margin:1rem auto;
+}
+/* 选择按钮样式 */
+.choose-ticket{
+    width: 88%;
+    height: 5rem;
+    margin: auto;
+}
+.ticket-button{
+    width: 29%;
+    float: left;
+    text-align: center;
+    /* box-sizing: border-box; */
+    background-color:rgba(204, 204, 204, 1);
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+.ticket-button:first-child{
+    margin-left: 0;
+}
+.ticket-button:last-child{
+    margin-right: 0;
+}
+
+.choose-color{
+    background-color:  rgba(255, 157, 58, 1);
+}
+/* 地址选择样式 */
+.place-icon{
+    height: 30px;
+}
+.place-name{
+    vertical-align: top;
+    padding-left: .5rem;
+}
+.start-place,.end-place{
+    height: 30px;
+    line-height: 30px;
+    color: #999999;
+    padding: .2rem;
+    margin: 0 .5rem;
+}
+.choose-place{
+    width: 88%;
+    margin: auto;
+    background-color: white;
+    padding: .5rem;
+    box-sizing: border-box;
+    border-radius: 1rem
+}
+.start-place{
+    border-bottom: 1px solid rgba(204, 204, 204, 1);
+}
+/* 购买按钮样式 */
+.buy-button{
+    width: 40%;
+    margin: 2rem auto;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background-color: rgba(255, 157, 58, 1);
+    color: white;
+    border-radius: .5rem;
+}
+/* 搜索条 */
+.choose-city {
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+.search-bar{
+    width: 90%;
+    margin:.5rem auto;
+    line-height: 2rem;
+    height: 2rem;
+}
+.cancelbtn{
+    float: left;
+    color:rgba(255, 157, 58, 1);
+    font-size: 1.1rem;
+}
+.search-icon{
+    height:15px;
+    vertical-align: middle;
+    position: relative;
+    top:-2px;
+}
+.search-content{
+    background-color: rgba(244, 244, 244, 1);
+    margin-left: 3rem;
+    padding-left: .5rem;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+}
+.search-input{
+    border: 0;
+    outline: none;
+    background-color: rgba(244, 244, 244, 1);
+}
+/* 城市列表 */
+.cityList{
+    width: 100%;
+    overflow: scroll;
+    
+}
+.cityList-title{
+    background-color: rgba(244, 244, 244, 1);
+    height: 2rem;
+    color: rgba(204, 204, 204, 1);
+    line-height: 2rem;
+    text-indent: 1rem;
+    font-size: .8rem;
+}
+.cityList-item{
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-bottom: 2px solid rgba(244, 244, 244, 1);
+    text-indent: 1rem;
+}
+/* 底部样式 */
+.footer{
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: rgba(244, 244, 244, 1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2rem;
+}
+.select-icon{
+    height: 20px;
+    vertical-align: middle;
+}
+.mask{
+    position: fixed;
+    width: 50%;
+    height: 6rem;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1010;
+    line-height: 6rem;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius:2rem;
+    display: none;
+}
