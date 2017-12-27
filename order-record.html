@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="resource/css/normalize.css">
     <link rel="stylesheet" href="css/order-record.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
     <script src="resource/js/jquery-2.2.0.js"></script>
     <script src="js/order-record.js"></script>
     <title>Document</title>
@@ -17,7 +16,7 @@
     <div class="main">
         <div class="headbar">
             <div class="page-back">
-               <img src="resource/img/left.png" alt="">  <span>返回</span> 
+                <img src="resource/img/left.png" alt="" class="back-icon">
             </div>
             <div class="page-title">
                 订单记录
@@ -25,171 +24,22 @@
         </div>
         <div class="ticketused-tab">
             <div class="ticketused-tab_content">
-                <div class="ticketused-tab_content-item item-left item-choose   ">使用中</div>
+                <div class="ticketused-tab_content-item ticketused-tab_content-item_choose item-left item-choose   ">使用中</div>
                 <div class="ticketused-tab_content-item item-right">已过期</div>
             </div>
         </div>
-        <div class="ticket-list noticket">
-            <div class="noticket-img">
-                <img src="resource/img/noticket.png" alt="">
-            </div>
-            <div class="noticket-content">
-                没有任何月票记录
-            </div>
-        </div>
-        <div class="ticket-list used" style="display:none">
+        <div class="ticket-list" >
             <!-- 年票月票模板 -->
             <div class="ticket-information">
-                <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
-                </div>
-                <div class="ticket-order">
-                    <div class="orderNum">
-                        订单号：12345678998765432
-                    </div>
-                    <div class="orderPrice">
-                        ￥5000
-                    </div>
-                </div>
-                <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
-                </div>
-                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
-            </div>
-            <!-- 年票月票模板 -->
-            <div class="ticket-information">
-                <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
-                </div>
-                <div class="ticket-order">
-                    <div class="orderNum">
-                        订单号：12345678998765432
-                    </div>
-                    <div class="orderPrice">
-                        ￥5000
-                    </div>
-                </div>
-                <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
-                </div>
-                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
-            </div>
-            <!-- 年票月票模板 -->
-            <div class="ticket-information">
-                <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
-                </div>
-                <div class="ticket-order">
-                    <div class="orderNum">
-                        订单号：12345678998765432
-                    </div>
-                    <div class="orderPrice">
-                        ￥5000
-                    </div>
-                </div>
-                <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
-                </div>
-                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
-            </div>
-            <!-- 年票月票模板 -->
-            <div class="ticket-information">
-                <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
-                </div>
-                <div class="ticket-order">
-                    <div class="orderNum">
-                        订单号：12345678998765432
-                    </div>
-                    <div class="orderPrice">
-                        ￥5000
-                    </div>
-                </div>
-                <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
-                </div>
-                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
-            </div>
-            <!-- 年票月票模板 -->
-            <div class="ticket-information">
-                <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
-                </div>
-                <div class="ticket-order">
-                    <div class="orderNum">
-                        订单号：12345678998765432
-                    </div>
-                    <div class="orderPrice">
-                        ￥5000
-                    </div>
-                </div>
-                <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
-                </div>
-                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
-            </div>
-        </div>
+                <div class="smallcircle">
 
-        <div class="ticket-list finish" style="display:none">
-            <!-- 年票月票模板 -->
-            <div class="ticket-information ticket-bg_finish">
+                </div>
+                <div class="bigcircle">
+
+                </div>
                 <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---月票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
                 </div>
                 <div class="ticket-order">
                     <div class="orderNum">
@@ -200,24 +50,21 @@
                     </div>
                 </div>
                 <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
+                    <span class="ticket-times-detail">次数:60/62次</span>
                 </div>
                 <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
             </div>
             <!-- 年票月票模板 -->
-            <div class="ticket-information ticket-bg_finish">
+            <div class="ticket-information">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
                 <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
                 </div>
                 <div class="ticket-order">
                     <div class="orderNum">
@@ -228,24 +75,21 @@
                     </div>
                 </div>
                 <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
+                    <span class="ticket-times-detail">次数:60/62次</span>
                 </div>
                 <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
             </div>
             <!-- 年票月票模板 -->
-            <div class="ticket-information ticket-bg_finish">
+            <div class="ticket-information">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
                 <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
                 </div>
                 <div class="ticket-order">
                     <div class="orderNum">
@@ -256,24 +100,21 @@
                     </div>
                 </div>
                 <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
+                    <span class="ticket-times-detail">次数:60/62次</span>
                 </div>
                 <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
             </div>
             <!-- 年票月票模板 -->
-            <div class="ticket-information ticket-bg_finish">
+            <div class="ticket-information">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
                 <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
                 </div>
                 <div class="ticket-order">
                     <div class="orderNum">
@@ -284,24 +125,21 @@
                     </div>
                 </div>
                 <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
-                    </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
-                    </div>
+                    <span class="ticket-times-detail">次数:60/62次</span>
                 </div>
                 <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
             </div>
             <!-- 年票月票模板 -->
-            <div class="ticket-information ticket-bg_finish">
+            <div class="ticket-information">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
                 <div class="ticket-type">
-                    <div class="type">
-                        <b>如约城际---年票卡</b>
-                    </div>
-                    <div class="place">
-                        <b>广州-珠海</b>
-                    </div>
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
                 </div>
                 <div class="ticket-order">
                     <div class="orderNum">
@@ -312,25 +150,189 @@
                     </div>
                 </div>
                 <div class="ticket-times">
-                    <div class="used-times">使用次数：
-                        <span>20次</span>
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class="ticket-information">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
                     </div>
-                    <div class="remaining-times">剩余次数：
-                        <span>20次</span>
+                    <div class="orderPrice">
+                        ￥5000
                     </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
                 </div>
                 <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
             </div>
         </div>
-    </div>
+        <div class="ticket-list"  style="display:none">
+            <!-- 年票月票模板 -->
+            <div class="ticket-information_fail">
+                <div class="smallcircle">
 
+                </div>
+                <div class="bigcircle">
 
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class="ticket-information_fail">
+                <div class="smallcircle">
 
-    <div class="footer-bar">
-        <div class="buyTicket">
-            前往购票
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class=" ticket-information_fail">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class="ticket-information_fail">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class=" ticket-information_fail">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
+            <!-- 年票月票模板 -->
+            <div class=" ticket-information_fail">
+                <div class="smallcircle">
+
+                </div>
+                <div class="bigcircle">
+
+                </div>
+                <div class="ticket-type">
+                    <b>美林湖-以太广场</b>
+                    <span>月票</span>
+                </div>
+                <div class="ticket-order">
+                    <div class="orderNum">
+                        订单号：12345678998765432
+                    </div>
+                    <div class="orderPrice">
+                        ￥5000
+                    </div>
+                </div>
+                <div class="ticket-times">
+                    <span class="ticket-times-detail">次数:60/62次</span>
+                </div>
+                <div class="ticket-date">使用期限：2017/08/01-2018/07/31</div>
+            </div>
         </div>
-    </div>
+      
     </div>
 
 </body>
