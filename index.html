@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="resource/css/normalize.css">
     <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="resource/js/iscroll.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/time-scroll.js"></script>
+    
     <title>Document</title>
 </head>
 
@@ -64,7 +68,7 @@
         </div>
         <div class="choose-date">
             <span class="choose-date-fl">选择使用日期</span>
-            <span class="choose-date-fr">2018/01/01-2018/01/01</span>
+            <span class="choose-date-fr"><span class="start-time">2018/01/01</span>-<span class="end-time">2018/01/01</span></span>
         </div>
         <div class="choose-phone">
             <span class="choose-phone-fl">联系电话</span>
@@ -118,6 +122,8 @@
             <div class="footer-item-left" >实际支付 <span class="price">￥65.00</span>   </div>
             <div class="footer-item-right"><span>提交订单</span></div>
         </div>
+        <div id="scrollTime" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div>
+        <!-- <div id="scrollTimeEnd" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div> -->
     </div>
 
 </body>

@@ -1,0 +1,214 @@
+;
+(function ($) {
+    var myScrollYear;
+    var myScrollMonth;
+    var myScrollDay;
+
+    var timeScroll = function (elem, opt) {
+        this.$element = elem,
+            this.default = {
+                yearFlag:4,
+                indexY : 1,
+                indexM : 1,
+                indexD : 1,
+                id: elem.selector,
+                obj: {},
+                scrollId: "",
+                title: "用车时间",
+                callback: function () { },
+                date: new Date(),
+            },
+            this.options = $.extend({}, this.default, opt);
+    };
+    timeScroll.prototype = {
+        //初始化
+        init: function () {
+
+            $(this.options.id).html('');
+            this.initHead(this.options.title, this.options.scrollId);
+            this.initFrame();
+            $("#years ul").html(this.initYear());
+            $("#months ul").html(this.initMonth());
+            $("#days ul").html(this.initDay());
+            this.initIscroll();
+            this.initClick(this.options.scrollId);
+            $(this.options.id).hide();
+        },
+        //初始化时间标题栏
+        initHead: function (title, scrollId) {
+            var mixhead = '<div class="blackMask"></div>' +
+                '<div class="h-40x l-h-40x bc-white b-b-1 p-f z-100 w-100 b-160x">' +
+                '<div class="w-20 fl-l text-center fcorange" id="cancelButton' + scrollId + '">取消</div>' +
+                '<div class="w-60 text-center fl-l">' + title + '</div>' +
+                '<div class="w-20 fl-r text-center fcorange " id="confirmButton' + scrollId + '">确定</div>' +
+                '</div>';
+            $(this.options.id).append(mixhead);
+        },
+        //初始化时间滚动框架
+        initFrame: function () {
+            var middleframe = '<div class="h-160x bc-white p-f w-100 overflow-h z-100 b-0">' +
+                '<div class="h-40x b-tb-1 p-a t-40x w-100"></div>' +
+                '<div class="fl-l w-33 h-160x" id="years">' +
+                '<ul></ul>' +
+                '</div>' +
+                '<div class="fl-l w-33 h-160x" id="months">' +
+                '<ul></ul>' +
+                '</div>' +
+                '<div class="fl-l w-33 h-160x" id="days">' +
+                '<ul></ul>' +
+                '</div>' +
+                '</div>';
+            $(this.options.id).append(middleframe);
+        },
+
+        //初始化第一栏年
+        initYear: function () {
+            var str = '<li  class="h-40x l-h-40x text-center">&nbsp;</li>';
+            var d = this.options.date;
+            var Nowtime= new Date();
+            var yearNum=d.getFullYear()-Nowtime.getFullYear();
+            
+            for (var i = 0; i < yearNum; i++) {
+                
+                var year = d.getFullYear();
+                str += '<li class="h-40x l-h-40x text-center" data-year="' + year + '">' + parseInt(year + i) + '</li>';
+            }
+            return str + '<li  class="h-40x l-h-40x text-center">&nbsp;</li><li  class="h-40x l-h-40x text-center">&nbsp;</li>';
+        },
+        //初始化第二栏月
+        initMonth: function () {
+
+            var str = '<li class="h-40x l-h-40x text-center">&nbsp;</li>';
+            var d = this.options.date;
+            var flag = d.getMonth() + 1;
+            var Mmonth = d.getMonth();
+            if (this.options.indexY > 1) {
+                flag = 1;
+            }
+            for (var i = flag; i <= 12; i++) {
+
+                str += '<li class="h-40x l-h-40x text-center" data-hour="' + i + '">' + i + '月</li>'
+
+            }
+            return str + '<li class="h-40x l-h-40x text-center">&nbsp;</li><li class="h-40x l-h-40x text-center">&nbsp;</li>';
+        },
+        //初始化第三栏日期
+        initDay: function () {
+            var str = '<li class="h-40x l-h-40x text-center">&nbsp;</li>';
+            var d = this.options.date;
+            var Dd = d.getDate();
+
+            var Dlast = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+            if (this.options.indexY > 1 || this.options.indexM > 1) {
+                Dd = 1;
+                var year_val = parseInt($("#years>ul>li").eq(this.options.indexY).html());
+                var month_val = parseInt($("#months>ul>li").eq(this.options.indexM).html());
+                Dlast = new Date(year_val, month_val, 0).getDate();
+            }
+            for (var i = Dd; i <= Dlast; i++) {
+
+                str += '<li class="h-40x l-h-40x text-center" minute="' + (i * 10) + '">' + i + '日</li>'
+
+
+            }
+            return str + '<li class="h-40x l-h-40x text-center">&nbsp;</li><li class="h-40x l-h-40x text-center">&nbsp;</li>';
+        },
+
+        //初始化iscroll
+        initIscroll: function () {
+            var that = this;
+            try {
+                myScrollYear.destory();
+                myScrollMonth.destory();
+                myScrollDay.destory();
+            } catch (e) {
+
+            }
+            myScrollYear = new iScroll('years', {
+                snap: 'li',
+                hScrollbar: false,
+                momentum: false,
+                vScrollbar: false,
+                onScrollEnd: function () {
+                  
+                    that.options.indexY = (this.y / 40) * (-1) + 1;
+                    $("#months ul").html(that.initMonth());
+                    $("#days ul").html(that.initDay());
+
+                    myScrollMonth.refresh();
+                    myScrollDay.refresh();
+                    console.log(that.options.indexY);
+                }
+            });
+
+
+            myScrollMonth = new iScroll('months', {
+                snap: 'li',
+                hScrollbar: false,
+                momentum: false,
+                vScrollbar: false,
+                hScroll: false,
+                onScrollEnd: function () {
+                    that.options.indexM = (this.y / 40) * (-1) + 1;
+                    $("#days ul").html(that.initDay());
+                    myScrollDay.refresh();
+                    console.log(that.options.indexM)
+                }
+            });
+
+
+            myScrollDay = new iScroll('days', {
+                snap: 'li',
+                hScrollbar: false,
+                momentum: false,
+                vScrollbar: false,
+                onScrollEnd: function () {
+                    that.options.indexD = (this.y / 40) * (-1) + 1;
+                    console.log(that.options.indexD);
+                }
+            });
+
+            setTimeout(function () {
+                myScrollYear.refresh();
+                myScrollMonth.refresh();
+                myScrollDay.refresh();
+            }, 500)
+
+        },
+
+
+        //初始化点击事件
+        initClick: function (id) {
+            var that = this;
+            $("#cancelButton" + id).on("click", function () {
+                $(that.options.id).hide();
+
+            });
+            $(".blackMask").on("click", function () {
+                $(that.options.id).hide();
+            });
+            $("#confirmButton" + id).on("click", function () {
+                var year_val = parseInt($("#years>ul>li").eq(that.options.indexY).html());
+                var month_val = parseInt($("#months>ul>li").eq(that.options.indexM).html());
+                var day_val = parseInt($("#days>ul>li").eq(that.options.indexD).html());
+                if (month_val < 10) {
+                    month_val = "0" + month_val;
+                }
+                if (day_val < 10) {
+                    day_val = "0" + day_val;
+                }
+                var text = year_val + "/" + month_val + "/" + day_val;
+                // var val = date_date + " " + date_hour + ":" + date_minute + ":00";
+                that.options.callback(text, text);
+                $(that.options.id).hide();
+            });
+        }
+
+    }
+    $.fn.jqueryTimeScroll = function (options) {
+        var newTimeScroll = new timeScroll(this, options);
+        newTimeScroll.init();
+
+        return newTimeScroll;
+    }
+})(jQuery);
