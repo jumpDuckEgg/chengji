@@ -17,20 +17,21 @@
                 title: "用车时间",
                 callback: function () { },
                 date: new Date(),
+                dateEnd:new Date((new Date()).getFullYear()+4,0,0)
             },
             this.options = $.extend({}, this.default, opt);
     };
     timeScroll.prototype = {
         //初始化
         init: function () {
-
+    
             $(this.options.id).html('');
             this.initHead(this.options.title, this.options.scrollId);
             this.initFrame();
             $("#years ul").html(this.initYear());
             $("#months ul").html(this.initMonth());
             $("#days ul").html(this.initDay());
-            this.initIscroll();
+            (this.initIscroll())();
             this.initClick(this.options.scrollId);
             $(this.options.id).hide();
         },
@@ -65,13 +66,14 @@
         initYear: function () {
             var str = '<li  class="h-40x l-h-40x text-center">&nbsp;</li>';
             var d = this.options.date;
-            var Nowtime= new Date();
-            var yearNum=d.getFullYear()-Nowtime.getFullYear();
-            
-            for (var i = 0; i < yearNum; i++) {
-                
-                var year = d.getFullYear();
-                str += '<li class="h-40x l-h-40x text-center" data-year="' + year + '">' + parseInt(year + i) + '</li>';
+            var year=d.getFullYear();
+            var dE = this.options.dateEnd;
+            var yearEnd=dE.getFullYear();
+            var num=yearEnd-year;
+
+           
+            for (var i = 0; i <= num; i++) {
+                str += '<li class="h-40x l-h-40x text-center" data-year="' + (year+i) + '">' + parseInt(year+i) + '</li>';
             }
             return str + '<li  class="h-40x l-h-40x text-center">&nbsp;</li><li  class="h-40x l-h-40x text-center">&nbsp;</li>';
         },
@@ -80,15 +82,14 @@
 
             var str = '<li class="h-40x l-h-40x text-center">&nbsp;</li>';
             var d = this.options.date;
+            var lastYear =this.options.dateEnd.getFullYear()- this.options.date.getFullYear()+1;
             var flag = d.getMonth() + 1;
             var Mmonth = d.getMonth();
             if (this.options.indexY > 1) {
                 flag = 1;
             }
-            for (var i = flag; i <= 12; i++) {
-
-                str += '<li class="h-40x l-h-40x text-center" data-hour="' + i + '">' + i + '月</li>'
-
+            for (var i = flag; i <= (this.options.indexY == lastYear?this.options.dateEnd.getMonth()+1:12); i++) {
+                str += '<li class="h-40x l-h-40x text-center" data-month="' + i + '">' + i + '月</li>'
             }
             return str + '<li class="h-40x l-h-40x text-center">&nbsp;</li><li class="h-40x l-h-40x text-center">&nbsp;</li>';
         },
@@ -97,7 +98,8 @@
             var str = '<li class="h-40x l-h-40x text-center">&nbsp;</li>';
             var d = this.options.date;
             var Dd = d.getDate();
-
+            var lastYear =this.options.dateEnd.getFullYear()- this.options.date.getFullYear()+1 ;
+            var lastMonth =this.options.dateEnd.getMonth()+1; 
             var Dlast = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
             if (this.options.indexY > 1 || this.options.indexM > 1) {
                 Dd = 1;
@@ -105,11 +107,18 @@
                 var month_val = parseInt($("#months>ul>li").eq(this.options.indexM).html());
                 Dlast = new Date(year_val, month_val, 0).getDate();
             }
+            
+            if(this.options.indexY ==lastYear&&this.options.indexM == lastMonth){
+                Dd = 1;
+                Dlast = this.options.dateEnd.getDate();
+                console.log(Dlast)
+            }
+            if(this.options.date.getFullYear()==this.options.dateEnd.getFullYear()&&this.options.date.getMonth()==this.options.dateEnd.getMonth()){
+                Dd=this.options.date.getDate();
+                Dlast=this.options.dateEnd.getDate();
+            }
             for (var i = Dd; i <= Dlast; i++) {
-
-                str += '<li class="h-40x l-h-40x text-center" minute="' + (i * 10) + '">' + i + '日</li>'
-
-
+                str += '<li class="h-40x l-h-40x text-center" data-day="' + i + '">' + i + '日</li>'
             }
             return str + '<li class="h-40x l-h-40x text-center">&nbsp;</li><li class="h-40x l-h-40x text-center">&nbsp;</li>';
         },
@@ -122,7 +131,7 @@
                 myScrollMonth.destory();
                 myScrollDay.destory();
             } catch (e) {
-
+               
             }
             myScrollYear = new iScroll('years', {
                 snap: 'li',
@@ -131,13 +140,13 @@
                 vScrollbar: false,
                 onScrollEnd: function () {
                   
-                    that.options.indexY = (this.y / 40) * (-1) + 1;
+                    that.options.indexY = Math.floor((this.y / 40) * (-1) + 1);
                     $("#months ul").html(that.initMonth());
                     $("#days ul").html(that.initDay());
-
+                    
                     myScrollMonth.refresh();
                     myScrollDay.refresh();
-                    console.log(that.options.indexY);
+                    // console.log(that.options.indexY);
                 }
             });
 
@@ -149,10 +158,10 @@
                 vScrollbar: false,
                 hScroll: false,
                 onScrollEnd: function () {
-                    that.options.indexM = (this.y / 40) * (-1) + 1;
+                    that.options.indexM = Math.floor((this.y / 40) * (-1) + 1);
                     $("#days ul").html(that.initDay());
                     myScrollDay.refresh();
-                    console.log(that.options.indexM)
+                    // console.log(that.options.indexM)
                 }
             });
 
@@ -163,16 +172,17 @@
                 momentum: false,
                 vScrollbar: false,
                 onScrollEnd: function () {
-                    that.options.indexD = (this.y / 40) * (-1) + 1;
-                    console.log(that.options.indexD);
+                    that.options.indexD = Math.floor((this.y / 40) * (-1) + 1);
+                    // console.log(that.options.indexD);
                 }
             });
-
-            setTimeout(function () {
-                myScrollYear.refresh();
-                myScrollMonth.refresh();
-                myScrollDay.refresh();
-            }, 500)
+            function initrefresh(){
+                    myScrollYear.refresh();
+                    myScrollMonth.refresh();
+                    myScrollDay.refresh();   
+            }
+            
+            return initrefresh;
 
         },
 
@@ -198,7 +208,6 @@
                     day_val = "0" + day_val;
                 }
                 var text = year_val + "/" + month_val + "/" + day_val;
-                // var val = date_date + " " + date_hour + ":" + date_minute + ":00";
                 that.options.callback(text, text);
                 $(that.options.id).hide();
             });

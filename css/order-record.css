@@ -184,4 +184,31 @@ html, body, .main{
     color: white;
     background-color: rgba(198,198,198,1);
 }
+.noticket{
+    width: 100%;
+    text-align: center;
+    margin-top:4rem;
+}
+.noticket img{
+    width:5rem;    
+}
+.noticket-message{
+    width: 100%;
+    text-align: center;
+    color: rgba(198,198,198,1);
+    margin-top:1rem;
+}
+.gotobuy{
+    width: 100%;
+    text-align: center;
+    margin-top:1.5rem;
+}
+.gotobuy span {
+    background-color: white;
+    border:1px solid rgba(198,198,198,1);
+    color: rgba(247, 145, 48, 1);
+    border-radius: 1rem;
+    padding: .3rem 1rem;
+   
+}
 

@@ -85,11 +85,11 @@ html, body, .main{
     white-space: nowrap;
 }
 .select-down{
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    /* height: 20px; */
     float: left;
     position: relative;
-    top: 8px;
+    top: 13px;
 }
 .route-content{
     transition: all 3s ;
