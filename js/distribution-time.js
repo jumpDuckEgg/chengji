@@ -1,27 +1,24 @@
+
 var timeFlag;
 var timeBox;
 $(function () {
-    ruleBtn();
     initTime();
     initScrollTime();
-    sumbitInformation();
-    $('.start-time,.end-time').click(function () {
-        timeFlag = this;    
+    $('.start-time,.end-time,.start-btn,.end-btn').click(function () {
+        timeFlag = this;
         openTime();
+        if (!$(this).hasClass('start-time') && !$(this).hasClass('end-time')) {
+            $(this).children('.arr').show();
+            $(this).children('.arr-right').hide();
+            timeFlag = $(this).prev();
 
+        } else {
+            timeFlag = $(this);
+            $(this).next().children('.arr').show();
+            $(this).next().children('.arr-right').hide();
+        }
     })
-
 });
-//购票须知
-function ruleBtn() {
-    $('.close-btn').click(function () {
-        $('.rule').hide();
-    });
-    $('.prompt-message').click(function () {
-        $('.rule').show();
-    })
-}
-
 //初始化时间
 function initTime() {
     var date = new Date();
@@ -34,7 +31,7 @@ function initTime() {
     if (day_val < 10) {
         day_val = "0" + day_val;
     }
-    var text = year_val + "/" + month_val + "/" + day_val;
+    var text = year_val + "-" + month_val + "-" + day_val;
     $('.end-time,.start-time').text(text);
 }
 //初始化滚动时间
@@ -43,19 +40,27 @@ function initScrollTime() {
         scrollId: "time",
         time: true,
         callback: callbackTime,
-        title: '选择时间',
-        date: new Date(),
-        dateEnd:new Date(new Date().getFullYear()+2,new Date().getMonth())
+        title: '',
+        date: new Date(new Date().getFullYear() - 2, new Date().getMonth()),
+        showDate:new Date('2018-6-5'),
+        dateEnd: new Date(new Date().getFullYear() + 2, new Date().getMonth())
     });
 }
 //打开选择时间
-function openTime(that) {
+function openTime() {
     $("#scrollTime").show();
 }
 //时间回调
 function callbackTime(text, val) {
-    $(timeFlag).text(text);
-    $(timeFlag).attr("times", text);
+
+    timeFlag.next().children('.arr').hide();
+    timeFlag.next().children('.arr-right').show();
+    if (text == 'cancel') {
+        return false;
+    }
+    console.log(timeFlag)
+    timeFlag.text(text);
+    timeFlag.attr("times", text);
     var ST = new Date($('.start-time').text()).getTime();
     var ET = new Date($('.end-time').text()).getTime();
     if ($(timeFlag).hasClass('start-time')) {
@@ -67,16 +72,5 @@ function callbackTime(text, val) {
             $('.start-time').text($('.end-time').text())
         }
     }
-
-}
-//提交按钮
-function sumbitInformation() {
-    $('.footer-item-right').click(function () {
-        var phone = $('.choose-phone-fr').val();
-        if (!(/^1[34578]\d{9}$/.test(phone))) {
-            alert("手机号码有误，请重填");
-            return false;  
-        }
-    });
 
 }

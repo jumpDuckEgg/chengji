@@ -1,0 +1,150 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, "黑体";
+    -webkit-overflow-scrolling: touch;  
+}
+html, body, .main{
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    background-color: #f3f3f3;
+
+}
+
+.main{
+   
+    
+     /* background-color: white; */
+}
+.barBox{
+    text-align: center;
+    height: 20px;
+    padding:8px;
+    background-color: white;
+    position: relative;
+}
+
+.barBox-left{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top:50%;
+    left:10px;
+    transform:translateY(-50%);
+
+}
+
+.barBox-left img{
+    width: 20px;
+    height: 20px;
+
+}
+
+.barBox-center{
+   line-height: 20px;
+   font-size: 15px;
+}
+
+.timeBox{
+    /* text-align: center; */
+    width: 92%;
+    height: 100px;
+    margin:20px auto;
+    margin-bottom: 25px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:3px 3px 3px #e6e6e6;
+    border-left: 4px solid rgba(96, 152, 255, 1);
+}
+.timeBox-item{
+    width: 90%;
+    margin: auto;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+.timeBox-item_left{
+    position: absolute;
+
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+
+}
+.timeBox-item_left img{
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top:2px;
+}
+.timeBox-item_center{
+    margin-left: 23px;
+}
+.timeBox-item_right{
+    position: absolute;
+    width: 100px;
+    height: 48px;
+    top:50%;
+    right:0px;
+    transform:translateY(-50%);
+}
+.timeBox-item_right-down{
+    position: absolute;
+
+    top:50%;
+    right:0px;
+    transform:translateY(-50%);
+}
+.arr{
+    width: 11px;
+    height: 6px;
+    display: none;
+}
+.arr-right{
+    height: 11px;
+    width: 6px;
+    position: relative;
+    top: 2px;
+}
+.record{
+    width: 92%;
+    height: 40px;
+    margin:10px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:3px 3px 3px #e6e6e6;
+    position: relative;
+}
+.record-content{
+    line-height: 40px;
+    height: 40px;
+    margin-left:15px;
+}
+.record-content_right{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 70px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #3cc569;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.record-content_right_colorV2{
+    background-color: #ffca10;
+}
+.record-content_right_colorV3{
+    background-color: #ff9110;
+}
+#cancelButtontime{
+    color: black;
+}

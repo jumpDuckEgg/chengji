@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/distribution-time.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
+    <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="resource/js/iscroll.js"></script>
+    <script src="js/time-scroll.js"></script>
+    <script src="js/distribution-time.js"></script>
+
+
+    <title>分销中心</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="barBox">
+            <div class="barBox-left"></div>
+            <div class="barBox-center">综合统计</div>
+        </div>
+        <div class="timeBox">
+            <div class="timeBox-item" style="border-bottom: 1px solid #eeeeee">
+                <div class="timeBox-item_left"></div>
+                <div class="timeBox-item_center">开始日期</div>
+                <div class="timeBox-item_right">
+                    <div class="start-time">2018-03-01</div>
+                    <div class="timeBox-item_right-down start-btn"></div>
+                </div>
+            </div>
+            <div class="timeBox-item">
+                <div class="timeBox-item_left"></div>
+                <div class="timeBox-item_center">结束日期</div>
+                <div class="timeBox-item_right">
+                    <div class="end-time">2018-03-01</div>
+                    <div class="timeBox-item_right-down end-btn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="record">
+            <div class="record-content">成交订单数</div>
+            <div class="record-content_right">12</div>
+        </div>
+        <div class="record">
+            <div class="record-content">成交票数</div>
+            <div class="record-content_right record-content_right_colorV2">18</div>
+        </div>
+        <div class="record">
+            <div class="record-content">成交金额</div>
+            <div class="record-content_right record-content_right_colorV3">￥2000</div>
+        </div>
+        <div id="scrollTime" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div>
+    </div>
+
+</body>
+
+</html>

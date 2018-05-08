@@ -15,9 +15,9 @@
 <body>
     <div class="main">
         <!-- 选择遮罩层 -->
-        <div class="mask">
-
-        </div>
+        <!-- <div class="mask" style="display:block">
+            asd
+        </div> -->
         <!-- 头部 -->
         <div class="headbar">
             <div class="page-back">
@@ -28,22 +28,25 @@
                 订单记录
             </div>
         </div>
-        <div class="remain">请问你需要购买：</div>
-        <!-- 车票类型按钮 -->
-        <div class="choose-ticket">
-            <div class="OnceTicket ticket-button choose-color">单程票</div>
-            <div class="SeasonTicket ticket-button ">季票</div>
-            <div class="YearTicket  ticket-button">年票</div>
+        <div class="buy-head">
+            <div class="remain">请问您需要购买</div>
+            <!-- 车票类型按钮 -->
+            <div class="choose-ticket">
+                <div class="MonthTicket ticket-button choose-color">月票</div>
+                <div class="SeasonTicket ticket-button ">季票</div>
+                <div class="groupTicket ticket-button ">套票</div>
+                <div class="YearTicket  ticket-button">年票</div>
+            </div>
         </div>
         <!-- 选择上下地点 -->
         <div class="choose-place">
             <div class="start-place">
                 <img src="resource/img/up.png" alt="" class="place-icon">
-                <span class="place-name">请选择出发城市</span>
+                <span class="place-name" data-msg="start">请选择出发城市</span>
             </div>
             <div class="end-place">
                 <img src="resource/img/down.png" alt="" class="place-icon">
-                <span class="place-name">请选择目的城市</span>
+                <span class="place-name" data-msg='end'>请选择目的城市</span>
             </div>
         </div>
         <!-- 购买按钮 -->
@@ -59,7 +62,7 @@
                     <input type="text" placeholder="城市/首字母/名称" class="search-input">
                 </div>
             </div>
-            <div class="cityList">
+            <div class="cityList loacl-data">
                 <div class="cityList-title">
                     选择城市
                 </div>
@@ -108,6 +111,30 @@
                 <div class="cityList-item">
                     中山市
                 </div>
+                <div class="cityList-item">
+                    深圳市
+                </div>
+                <div class="cityList-item">
+                    汕头市
+                </div>
+                <div class="cityList-item">
+                    肇庆市
+                </div>
+            </div>
+            <div class="cityList select-data">
+                
+            </div>
+            <div class="footer-box">
+                <div class="footer-list">
+                    <div class="footer-item footer-item_select">广东</div>
+                    <div class="footer-item">广西</div>
+                    <div class="footer-item">湖北</div>
+                    <div class="footer-item">湖南</div>
+                    <div class="footer-item">广西</div>
+                    <div class="footer-item">湖北</div>
+                    <div class="footer-item">湖南</div>
+                </div>
+
             </div>
             <div class="footer">
                 <span>广东</span>

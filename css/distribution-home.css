@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, "黑体";
+    -webkit-overflow-scrolling: touch;  
+}
+html, body, .main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+
+}
+
+.main{
+   
+    
+     /* background-color: white; */
+}
+.distributionBox{
+    width: 92%;
+    height: 190px;
+    margin:20px auto;
+    padding-top:20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:3px 3px 3px #e6e6e6;
+}
+.distributionBox-title{
+    height: 40px;line-height: 40px;
+}
+.distributionBox-title_left{
+    width: 40px;height:45px;float: left;margin:0 10px 0 20px;
+}
+.distributionBox-title_left img{ 
+    width: 40px;height:45px;position: relative;top: -3px;
+}
+.distributionBox-title_right{
+    display: inline-block;font-size:23px;
+}
+.distributionBox-split{
+    border-top:1px solid #eeeeee;width:94%;margin:20px auto;
+}
+
+.distributionBox-item{
+    width:90%;margin:10px auto;font-size: 16px;
+}
+.distributionBox-remind{
+    color: rgba(255, 157, 58, 1);width:90%;margin:auto;margin-top:32px;font-size:13px;
+}
+.distributionBox-btn{
+    background-color: rgba(255, 157, 58, 1);border-radius: 20px;width: 92%;margin:30px auto;text-align: center;
+    color: white;
+    padding:12px 0;
+    font-size: 15px;
+}

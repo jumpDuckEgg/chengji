@@ -1,6 +1,56 @@
 $(function () {
-    tabchange();
+    // tabchange();
     init();
+    var $onceTicketBtn = $('.OnceTicket');
+    var $monthTicketBtn = $('.MonthTicket');
+    var $groupTicketBtn = $('.GroupTicket');
+    var mySwiper = new Swiper('.swiper-container', {
+        on:{
+            transitionEnd: function(swiper){
+                console.log(mySwiper.snapIndex)
+              if(mySwiper.snapIndex==0){
+                $monthTicketBtn.removeClass('ticketTab_item-select');
+                $groupTicketBtn.removeClass('ticketTab_item-select');
+                $onceTicketBtn.addClass('ticketTab_item-select');
+              }
+              if(mySwiper.snapIndex==1){
+                $onceTicketBtn.removeClass('ticketTab_item-select');
+            $groupTicketBtn.removeClass('ticketTab_item-select');
+            $monthTicketBtn.addClass('ticketTab_item-select');
+              }
+              if(mySwiper.snapIndex==2){
+                $monthTicketBtn.removeClass('ticketTab_item-select');
+                $onceTicketBtn.removeClass('ticketTab_item-select');
+                $groupTicketBtn.addClass('ticketTab_item-select');
+              }
+            },
+          },
+    });  
+    
+    $onceTicketBtn.click(function () {
+        if (!$onceTicketBtn.hasClass('ticketTab_item-select')) {
+            $monthTicketBtn.removeClass('ticketTab_item-select');
+            $groupTicketBtn.removeClass('ticketTab_item-select');
+            $onceTicketBtn.addClass('ticketTab_item-select');
+            mySwiper.slideTo(0, 1000, false);
+        }
+    })
+    $monthTicketBtn.click(function () {
+        if (!$monthTicketBtn.hasClass('ticketTab_item-select')) {
+            $onceTicketBtn.removeClass('ticketTab_item-select');
+            $groupTicketBtn.removeClass('ticketTab_item-select');
+            $monthTicketBtn.addClass('ticketTab_item-select');
+            mySwiper.slideTo(1, 1000, false);
+        }
+    }) 
+    $groupTicketBtn.click(function () {
+        if (!$groupTicketBtn.hasClass('ticketTab_item-select')) {
+            $monthTicketBtn.removeClass('ticketTab_item-select');
+            $onceTicketBtn.removeClass('ticketTab_item-select');
+            $groupTicketBtn.addClass('ticketTab_item-select');
+            mySwiper.slideTo(2, 1000, false);
+        }
+    })
 });
 function init() {
 
@@ -14,17 +64,11 @@ function tabchange() {
     var $onceTicketBtn = $('.OnceTicket');
     var $monthTicketBtn = $('.MonthTicket');
     var $groupTicketBtn = $('.GroupTicket');
-    var $onceTicketList = $('.onceTicketList');
-    var $monthTicketList = $('.monthTicketList');
-    var $groupTicketList = $('.groupTicketList');
     $onceTicketBtn.click(function () {
         if (!$onceTicketBtn.hasClass('ticketTab_item-select')) {
             $monthTicketBtn.removeClass('ticketTab_item-select');
             $groupTicketBtn.removeClass('ticketTab_item-select');
             $onceTicketBtn.addClass('ticketTab_item-select');
-            $onceTicketList.css('display', 'block').scrollTop(0);
-            $monthTicketList.css('display','none');
-            $groupTicketList.css('display','none');
         }
     })
     $monthTicketBtn.click(function () {
@@ -32,9 +76,7 @@ function tabchange() {
             $onceTicketBtn.removeClass('ticketTab_item-select');
             $groupTicketBtn.removeClass('ticketTab_item-select');
             $monthTicketBtn.addClass('ticketTab_item-select');
-            $monthTicketList.css('display', 'block').scrollTop(0);
-            $onceTicketList.css('display','none');
-            $groupTicketList.css('display','none');
+           
         }
     }) 
     $groupTicketBtn.click(function () {
@@ -42,9 +84,7 @@ function tabchange() {
             $monthTicketBtn.removeClass('ticketTab_item-select');
             $onceTicketBtn.removeClass('ticketTab_item-select');
             $groupTicketBtn.addClass('ticketTab_item-select');
-            $groupTicketList.css('display', 'block').scrollTop(0);
-            $onceTicketList.css('display','none');
-            $monthTicketList.css('display','none');
+            
         }
     })
 }
