@@ -50,12 +50,12 @@ html, body, .main{
     left: 50%;
     transform: translateX(-50%);
     top:265px;
-    width: 150px;
-    /* animation: Breathe 1.5s infinite; */
+    width: 65%;
+    animation: Breathe 1.5s infinite;
 }
 
 @keyframes Breathe{
-    0% {width:150px;}
-    50% {width:153px;}
-    100%{width:150px;}
+    0% {width:65%;}
+    50% {width:70%;}
+    100%{width:65%;}
 }

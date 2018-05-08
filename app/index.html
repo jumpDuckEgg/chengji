@@ -3,29 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="resource/css/normalize.css">
     <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="resource/js/iscroll.js"></script>
+    <script src="js/daytime-scroll.js"></script>
     <script src="js/main.js"></script>
-
 
     <title>如约城际</title>
 </head>
 
 <body>
     <div class="main">
-        <div class="mask">
-            <div class="reservation-box">
-                    <img src="/resource/img/content.png" alt="" class="reservation-content">
-                    <img src="/resource/img/close.png" alt="" class="reservation-close">
-                    <img src="/resource/img/reservation.png" alt="" class="reservation-btn">
-            </div>
+        <img src="/resource/img/banner.png" alt="" class="bgImg">
+        <div class="inputItem inputItem_first" style="position: relative;top: -5px;">
+            <img src="/resource/img/user.png" alt="" class="inputItem-icon">
+            <input type="text" placeholder="联系人姓名" class="inputItem-input">
+        </div>
+        <div class="inputItem inputItem_top" style="margin-top: 5px;">
+            <img src="/resource/img/phone.png" alt="" class="inputItem-icon" style="top:5px">
+            <input type="number" placeholder="手机号码" class="inputItem-input">
+        </div>
+        <div class="inputItem inputItem_top">
+            <img src="/resource/img/placeUp.png" alt="" class="inputItem-icon" style="top:4px">
+            <input type="text" placeholder="上车地址" class="inputItem-input">
+        </div>
+        <div class="inputItem inputItem_top">
+                <img src="/resource/img/placeUp.png" alt="" class="inputItem-icon" style="top:4px">
+                <input type="text" value="越秀南客运站"  class="inputItem-input" disabled>
+        </div>
+        <div class="inputItem inputItem_top">
+                <img src="/resource/img/useTime.png" alt="" class="inputItem-icon" style="width: 15px;">
+                <div class="useTime">用车时间</div>
+        </div>
+        <div class="reservation-btn">
+                <img src="/resource/img/reservationCar.png" alt="" >
+        </div>
+        <div class="rules">
+            <div class="rules-title">活动用车规则</div>
+            <div class="rules-content">1.参与本次预约服务即默认注册为如约的士新用户；</div>
+            <div class="rules-content">2.乘客参与预约用车活动，即享立减20元如约的士预约乘车优惠；</div>
+            <div class="rules-content">3.乘车优惠券在15日内使用有效，仅限本次活动使用；</div>
+            <div class="rules-content">4.优惠券适用于如约的士中的四座车型；</div>
+            <div class="rules-content">5.本次优惠活动为提前三天购买活动旅游产品的旅客尊享；</div>
+            <div class="rules-content">6.客服热线：020-37209007，工作日时间：周一至周五（9:00-18:00）；</div>
+            <div class="rules-content">7.如约科技公司保留在法律允许的范围内对活动的解释权。</div>
         </div>
     </div>
-
+    <div id="scrollTime" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div>
 </body>
 
 </html>
