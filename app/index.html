@@ -9,51 +9,89 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="resource/css/normalize.css">
     <script src="resource/js/jquery-2.2.0.js"></script>
-    <script src="resource/js/iscroll.js"></script>
-    <script src="js/daytime-scroll.js"></script>
+    <script src="js/md5.js"></script>
     <script src="js/main.js"></script>
-
     <title>如约城际</title>
 </head>
 
 <body>
     <div class="main">
-        <img src="/resource/img/banner.png" alt="" class="bgImg">
-        <div class="inputItem inputItem_first" style="position: relative;top: -5px;">
-            <img src="/resource/img/user.png" alt="" class="inputItem-icon">
-            <input type="text" placeholder="联系人姓名" class="inputItem-input">
+        <input id="imgInp" type="file" accept="image/*" capture="camera" multiple>
+
+        <div style="width: 300px;height: 400px;border: 1px solid black;">
+            <img id="blah" style="width: 300px;height: 400px; " src="" alt="">
         </div>
-        <div class="inputItem inputItem_top" style="margin-top: 5px;">
-            <img src="/resource/img/phone.png" alt="" class="inputItem-icon" style="top:5px">
-            <input type="number" placeholder="手机号码" class="inputItem-input">
-        </div>
-        <div class="inputItem inputItem_top">
-            <img src="/resource/img/placeUp.png" alt="" class="inputItem-icon" style="top:4px">
-            <input type="text" placeholder="上车地址" class="inputItem-input">
-        </div>
-        <div class="inputItem inputItem_top">
-                <img src="/resource/img/placeUp.png" alt="" class="inputItem-icon" style="top:4px">
-                <input type="text" value="越秀南客运站"  class="inputItem-input" disabled>
-        </div>
-        <div class="inputItem inputItem_top">
-                <img src="/resource/img/useTime.png" alt="" class="inputItem-icon" style="width: 15px;">
-                <div class="useTime">用车时间</div>
-        </div>
-        <div class="reservation-btn">
-                <img src="/resource/img/reservationCar.png" alt="" >
-        </div>
-        <div class="rules">
-            <div class="rules-title">活动用车规则</div>
-            <div class="rules-content">1.参与本次预约服务即默认注册为如约的士新用户；</div>
-            <div class="rules-content">2.乘客参与预约用车活动，即享立减20元如约的士预约乘车优惠；</div>
-            <div class="rules-content">3.乘车优惠券在15日内使用有效，仅限本次活动使用；</div>
-            <div class="rules-content">4.优惠券适用于如约的士中的四座车型；</div>
-            <div class="rules-content">5.本次优惠活动为提前三天购买活动旅游产品的旅客尊享；</div>
-            <div class="rules-content">6.客服热线：020-37209007，工作日时间：周一至周五（9:00-18:00）；</div>
-            <div class="rules-content">7.如约科技公司保留在法律允许的范围内对活动的解释权。</div>
+        <div>
+            <button class="sub">按钮</button>
         </div>
     </div>
-    <div id="scrollTime" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div>
 </body>
+
+<script>
+    var appkey = 'FwfG7x82k1wQXU02';
+    var appID = '1106850849';
+    var imgBase = '';
+    var sign = '';
+    var submitData = {
+        'app_id':appID,
+        'image':'',
+        'model':3,
+        'nonce_str':'20e3408a88',
+        'sign':'',
+        'time_stamp':new Date().getTime()/1000
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+                imgBase =(""+e.target.result).split(',')[1];
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+
+    $('.sub').click(function(){
+        submitData['image'] = imgBase;
+        submitData['time_stamp'] = Math.floor(new Date().getTime()/1000);
+        var str = '';
+        for(var i in submitData){
+            if(submitData[i]!= ''){
+                str += (i+'='+encodeURIComponent(submitData[i])+'&')
+            }   
+        }
+        str += ('app_key='+appkey);
+        sign = md5(str).toUpperCase();
+        submitData['sign'] = sign;
+        console.log(submitData)
+        $.ajax({  
+            type:'post',  
+            dataType :'json',                  
+            contentType:'application/x-www-form-urlencoded; charset=utf-8',     
+            url:"https://api.ai.qq.com/fcgi-bin/ptu/ptu_facemerge",  
+            data:submitData,  
+            success:function(data){  
+              console.log(data)
+            },  
+            error:function(data){
+                console.log(data)  
+                alert("error:"+data);  
+            }  
+        });  
+
+    })
+
+    function changeSign(params, appkey) {
+
+    }
+
+
+
+
+</script>
 
 </html>

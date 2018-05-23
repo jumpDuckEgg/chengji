@@ -32,7 +32,6 @@
             $("#months ul").html(this.initMonth());
             $("#days ul").html(this.initDay());
             (this.initIscroll())();
-
             this.initClick(this.options.scrollId);
             this.initNowTime(this.options.scrollId)
             $(this.options.id).hide();

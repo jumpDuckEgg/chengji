@@ -1,8 +1,8 @@
 ;
 (function ($) {
-    var myScrollYear;
-    var myScrollMonth;
-    var myScrollDay;
+    var myScrollDate;
+    var myScrollHour;
+    var myScrollMinute;
 
     var timeScroll = function (elem, opt) {
         this.$element = elem,
@@ -23,14 +23,12 @@
     timeScroll.prototype = {
         //初始化
         init: function () {
-
             $(this.options.id).html('');
             this.initHead(this.options.title, this.options.scrollId);
             this.initFrame();
             $("#dates ul").html(this.initDate());
             $("#hours ul").html(this.initHour());
             $("#minutes ul").html(this.initMinute());
-            
             this.initClick(this.options.scrollId);
             this.initIscroll();
             $(this.options.id).hide();
@@ -39,7 +37,7 @@
         initHead: function (title, scrollId) {
             var mixhead = '<div class="blackMask"></div>' +
                 '<div class="h-40x l-h-40x bc-white b-b-1 p-f z-100 w-100 b-160x">' +
-                '<div class="w-20 fl-l text-center fcorange" id="cancelButton' + scrollId + '">取消</div>' +
+                '<div class="w-20 fl-l text-center " id="cancelButton' + scrollId + '">取消</div>' +
                 '<div class="w-60 text-center fl-l">' + title + '</div>' +
                 '<div class="w-20 fl-r text-center fcorange " id="confirmButton' + scrollId + '">确定</div>' +
                 '</div>';
@@ -122,7 +120,7 @@
         //初始化iscroll
         initIscroll: function () {
             var that = this;
-            myScrollYear = new iScroll('dates', {
+            myScrollDate = new iScroll('dates', {
                 snap: 'li',
                 hScrollbar: false,
                 momentum: false,
@@ -132,7 +130,7 @@
                     that.options.indexY = Math.floor((this.y / 40) * (-1) + 1);
                 }
             });
-            myScrollMonth = new iScroll('hours', {
+            myScrollHour = new iScroll('hours', {
                 snap: 'li',
                 hScrollbar: false,
                 momentum: false,
@@ -143,7 +141,7 @@
                     that.options.indexM = Math.floor((this.y / 40) * (-1) + 1);
                 }
             });
-            myScrollDay = new iScroll('minutes', {
+            myScrollMinute = new iScroll('minutes', {
                 snap: 'li',
                 hScrollbar: false,
                 momentum: false,
@@ -162,16 +160,14 @@
             var that = this;
             $("#cancelButton" + id).on("click", function () {
                 $(that.options.id).hide();
-
             });
             $(".blackMask").on("click", function () {
                 $(that.options.id).hide();
             });
             $("#confirmButton" + id).on("click", function () {
-                var date_val = parseInt($("#dates>ul>li").eq(that.options.indexY).html());
-                var hour_val = parseInt($("#hours>ul>li").eq(that.options.indexM).html());
-                var minute_val = parseInt($("#minutes>ul>li").eq(that.options.indexD).html());
-
+                var date_val = $("#dates>ul>li").eq(that.options.indexY).html();
+                var hour_val = $("#hours>ul>li").eq(that.options.indexM).html();
+                var minute_val = $("#minutes>ul>li").eq(that.options.indexD).html();
                 var text = date_val+ hour_val  + minute_val;
                 that.options.callback(text);
                 $(that.options.id).hide();
