@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone = no" />
+	<title>如约城际</title>
+	<link href="css/custom_schedule.css" rel="stylesheet" />
+	<link href="css/custom-schedule-icons.css" rel="stylesheet" />
+	<link rel="stylesheet" href="resource/css/jquery.simpleDate.css" />
+	<script src="resource/js/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="resource/js/iscroll.js"></script>
+	<script src="resource/js/dateUtil.js"></script>
+	<script type="text/javascript" src="resource/js/jquery.simpleDate.js"></script>
+	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=7HvimsX4u5PxqLYVvUcDw1F6GnaTFYLe&s=1"></script>
+</head>
+
+<style>
+	html,body{
+		background-color: white;
+	}
+	.mask {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		display: none;
+		z-index: 201;
+	}
+
+	.infoBox {
+		background-color: white;
+		width: 90%;
+		height: 450px;
+		margin: auto;
+		margin-top: 20px;
+		border-radius: 10px;
+	}
+
+	.infoBox-img {
+		height: 300px;
+		overflow: scroll;
+		width: 90%;
+		margin: auto;
+		overflow-x: hidden;
+		text-align: center;
+		padding-top: 20px;
+	}
+
+	.infoBox-title {
+		width: 90%;
+		margin: auto;
+	}
+
+	.infoBox-content {
+		width: 90%;
+		margin: auto;
+		margin-bottom: 10px;
+		height: 50px;
+		overflow: scroll;
+		font-size: 14px;
+		color: #999;
+	}
+
+	.infoBox-btn {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		border-top: 1px solid #eaeaea;
+		color: #F69C42;
+	}
+
+	.goRoad {
+		text-align: right;
+		margin-bottom: 5px;
+		color: #10a1e0;
+		cursor: pointer;
+	}
+
+	.mapV2 {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: white;
+		width: 100%;
+		display: none;
+		z-index: 501;
+	}
+
+	#l-map {
+		height: 300px;
+		width: 100%;
+	}
+</style>
+
+<body>
+	<div class="header">
+
+		<div class="header-line-title">
+			<img src="resource/img/shuttle/serviceleft.png" height="20px" id="header-line-title-back" onclick="window.history.go(-1)" />
+			<span style="font-size: 15px;" class="chooseDay">05-23 周三</span>
+			<span class="header-line-title-btn">修改日期</span>
+		</div>
+	</div>
+	<div class="timeBox">
+		<div class="noSchedule">
+			暂无班次信息，请修改出行日期
+		</div>
+		<div class="timeBox-title">
+			<span class="timeBox-title-left">班次选择</span>
+			<span class="timeBox-title-right">返程切换</span>
+		</div>
+		<div class="timeBox-content">
+			<span class="timeBox-content-left">
+				<span class="timeBox-content-left-time">06:00</span>
+				<span class="timeBox-content-left-ticketNum">余票26张</span>
+			</span>
+			<span class="timeBox-content-right">
+				<span>选择其他班次</span>
+				<span class="timeBox-content-right-arrow">›</span>
+			</span>
+		</div>
+		<div class="scheduleBox">
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">06:00</div>
+				<div class="scheduleBox-item-ticketNum">余票42张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">12:00</div>
+				<div class="scheduleBox-item-ticketNum">余票12张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">06:00</div>
+				<div class="scheduleBox-item-ticketNum">余票52张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">15:00</div>
+				<div class="scheduleBox-item-ticketNum">余票17张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">16:00</div>
+				<div class="scheduleBox-item-ticketNum">余票6张</div>
+			</div>
+			<div class="scheduleBox-item scheduleBox-item-noticket">
+				<div class="scheduleBox-item-time">12:00</div>
+				<div class="scheduleBox-item-ticketNum">余票0张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">06:00</div>
+				<div class="scheduleBox-item-ticketNum">余票42张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">13:00</div>
+				<div class="scheduleBox-item-ticketNum">余票42张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">06:00</div>
+				<div class="scheduleBox-item-ticketNum">余票42张</div>
+			</div>
+			<div class="scheduleBox-item">
+				<div class="scheduleBox-item-time">06:00</div>
+				<div class="scheduleBox-item-ticketNum">余票42张</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-stations">
+			<div class="container-title">
+				<div class="container-title-nameV2">请选择上下车站点</div>
+			</div>
+			<div id="container-stations-list">
+
+			</div>
+			<div class="container-map-button">
+				<span class="icon-pullup" onclick="showMap()"></span>
+				<div>点击查看地图</div>
+			</div>
+		</div>
+		<div id="station-temp">
+			<div class="container-station-temp" onclick="select_station(this)" markerseq="{k}" stype="{stype}" code="{code}" seq="{seq}"
+			 stationName="{stationname}" longitude="{longitude}" latitude="{latitude}">
+				<span class="icon-{chose-icon} p-r t-10x m-r-5x chosestatus in-block fs-20"></span> {station-icon}
+				<span class="icon-{line-icon} line-icon fs-20"></span>
+				<span class="station-name">{station}</span>
+				<div class="choseBox">
+					<span class="setUpBtn" onclick="open_chosebox('1',event)">设上车点</span>
+					<span class="setDownBtn" onclick="open_chosebox('2',event)">设下车点</span>
+				</div>
+				<span class="station-detail" onclick="showDetail(this,event)" stationName="{stationname}" stationDesp="{stationdesp}" stationImg1="{stationimg1}"
+				 stationImg2="{stationimg2}">详细</span>
+				<span class="arrive-time">{timetips}</span>
+			</div>
+		</div>
+		<input id="startNode" type="hidden" />
+		<input id="endNode" type="hidden" />
+
+		<div class="map">
+			<div class="map-dropdown">
+				<i class="icon-bg map-dropdown-bg"></i>
+				<span class="map-dropdown-title" onclick="hideMap()">
+					选择上下车点
+					<i class="icon-dropdown fs-12"></i>
+				</span>
+			</div>
+			<div id="allmap">
+
+			</div>
+		</div>
+
+		<div id="stationDetail">
+			<div class="black-mask" onclick="hideDetail()"></div>
+			<div id="stationDetail-box">
+				<div id="stationDetail-imgs-list" style="max-height: 300px;overflow: scroll;">
+					<img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img1">
+					<img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img2">
+				</div>
+				<div id="station_name" class="infoBox-title">
+					<strong></strong>
+				</div>
+				<div id="station_desp" class="infoBox-content">
+				</div>
+				<div class="goRoad">
+					到这里去 >
+				</div>
+				<div class="infoBox-btn">
+					返回
+				</div>
+			</div>
+		</div>
+
+		<div id="tips">
+			<div class="black-mask"></div>
+			<div id="tips-box" style="padding-bottom: 5px;">
+				<div id="tips-container">
+					系统已为您勾选以下选项，如不合适请重新选择
+					<div style="margin-top: 10px;color: black;">
+						<img src="resource/img/shuttle/time.png" alt="" style="width: 20px;height: 20px;position: relative;top:5px;margin-right: 5px;">
+						<span id="time">05/23
+							<span style="margin: 0 5px;">周日</span>06:00</span>
+					</div>
+					<div style="margin-top: 2px;color: black;">
+						<img src="resource/img/shuttle/serviceup.png" alt="" style="width: 20px;height: 20px;position: relative;top:5px;margin-right: 5px;">
+						<span id="startName"></span>
+					</div>
+					<div style="margin-top: 2px;color: black;">
+						<img src="resource/img/shuttle/servicedown.png" alt="" style="width: 20px;height: 20px;position: relative;top:5px;margin-right: 5px;">
+						<span id="endName"></span>
+					</div>
+					<div style="text-align: center;margin: 13px 0;font-size: 15px;color: #999">
+						*乘车请绑好安全带*
+					</div>
+				</div>
+
+				<div id="tips-btn" onclick="hideTips()">
+					我知道了
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<div class="footer-tab">
+			<span>票价</span>
+			<span id="price">￥0.00</span>
+			<span id="oldpricetitle" style="display:none;padding-left:5px;">原价</span>
+			<span id="oldprice" style="color:red;text-decoration:line-through;display:none;">￥0.00</span>
+			<div class="footer-buy-ticket-btn" onclick="submitAction()">
+				购票
+			</div>
+		</div>
+	</div>
+	<div class="mapV2">
+		<div class="header-line-title" style="background-color: white;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 600;">
+			<img src="resource/img/shuttle/serviceleft.png" height="20px" id="header-line-title-back" onclick="$('.mapV2').hide()" />
+			<span>路线导航</span>
+		</div>
+		<div style="background-color: white;">
+			<div id="l-map"></div>
+			<div id="r-result"></div>
+		</div>
+
+	</div>
+</body>
+
+<script>
+
+	//		日历日期选择
+	$(function () {
+		var scrollRefreshDateObj;
+		
+		$('.header-line-title-btn').click(function () {
+			scrollRefreshDateObj = $('body').scrollRefreshDate({
+				enableDays: 14,
+				callback: getDate,
+				isNewObjEveryTime: false,
+				theme: '#f79030',
+				ishidden: true,
+				dtitle: '选择出发日期',
+				datestrs: ''
+			});
+
+		})
+		changeTime();
+		//			获取时间跳转链接
+		function getDate(date) {
+			var now = new Date(parseInt(date) * 1000);
+			changeTime(now)
+		}
+		// 换算星期
+
+
+	})	
+	//初始化选择日期
+	function changeTime(date) {
+		if (!date) {
+			date = new Date();
+		}
+		var weekday = getWeek(date);
+		var chooseMonth = '';
+		var chooseDate = '';
+		if (date.getMonth() + 1 < 10) {
+			chooseMonth = '0' + (date.getMonth()+1)
+		} else {
+			chooseMonth = date.getMonth()+1
+		}
+		if (date.getDate() < 10) {
+			chooseDate = '0' + date.getDate()
+		} else {
+			chooseDate = date.getDate();
+		}
+		$('.chooseDay').text(chooseMonth + '-' + chooseDate + ' ' + weekday)
+	}
+
+	// 路线选择
+	var goStations = {};
+	$('.infoBox-btn').click(function () {
+		$('#stationDetail').hide();
+	})
+
+	$('.goRoad').click(function () {
+		var geolocation = new BMap.Geolocation();
+		geolocation.getCurrentPosition(function (r) {
+			if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+
+				var locationy = goStations.Latitude;
+				var locationx = goStations.Longitude;
+				var name = goStations.name;
+				var p1 = new BMap.Point(r.point.lng, r.point.lat);
+				var p2 = new BMap.Point(locationx, locationy);
+				var transit = new BMap.TransitRoute(map2, {
+					renderOptions: { map: map2, panel: "r-result" }, onPolylinesSet: function () {
+						$("#r-result h1").html("我的位置 到 " + name + " 的路线");
+					},
+					onSearchComplete: function (result) {
+						if (result.yr.length == 0) {
+							$("#r-result").append("<div style='text-align:center;margin-top:20px;'>暂无推荐出行路线</div>")
+						}
+					}
+				});
+
+				transit.search(p1, p2);
+			}
+			else {
+				alert('failed' + this.getStatus());
+			}
+		}, { enableHighAccuracy: true })
+
+		$('.mapV2').show();
+	})
+
+
+	// 时间选择
+	$(function () {
+
+		initSchedule();
+		$('.scheduleBox-item').click(function () {
+			if ($(this).hasClass('scheduleBox-item-noticket')) {
+				return false;
+			}
+			$('.scheduleBox-item').removeClass('scheduleBox-item-choose');
+			$(this).addClass('scheduleBox-item-choose');
+			var time = $(this).find('.scheduleBox-item-time').text();
+			var ticketNum = $(this).find('.scheduleBox-item-ticketNum').text();
+			$('.timeBox-content-left-time').text(time);
+			$('.timeBox-content-left-ticketNum').text(ticketNum);
+		})
+
+	});
+	function initSchedule() {
+		var scheduleBox = $('.scheduleBox');
+		scheduleBox.hide();
+		$('.timeBox-content-right').click(function () {
+			scheduleBox.toggle();
+		});
+		var firstScheduleItem = $(scheduleBox.find('.scheduleBox-item')[0])
+		firstScheduleItem.addClass('scheduleBox-item-choose');
+
+	}
+	var priceList = {};
+	var that;
+	var code = "";
+	var map;
+	var map2;
+	var upstationmk;
+	var downstationmk;
+	var stationLng;
+	var stationLat;
+	var stationaddr;
+	var stationicon;
+	var pointsStr
+	var points;
+	var midStations = [];
+	var runscar = new Array();
+	// 最后车辆出现的位置(需要获取) '<?php echo json_encode($row["RunsGPS"]); ?>';
+	var lastRunsStr = [];
+	var stationData = [];
+	$(function () {
+		stationInit();
+		mapInit();
+		updateCars();
+		window.setInterval(updateCars, 60 * 1000);
+		$($(".container-station-temp")[0]).click();
+		$($(".container-station-temp")[$(".container-station-temp").length - 2]).click();
+	})
+
+	/**初始化站点**/
+	function stationInit() {
+		//获取站点之间的价格（需要获取）'{$row["PriceList"]}' || '{}';
+		var priceListStr = '{"S0192_S0194":0.01,"S0192_S4699":0,"S0192_S0184":0.01,"S0181_S0194":0.01,"S0181_S4699":0,"S0181_S0184":0.01,"S4699_S0194":-1,"S4699_S4699":-1,"S4699_S0184":0.01}' || '{}' || '{}';
+		priceList = eval("(" + priceListStr + ")");
+		// 获取站点信息（需要获取）'{$row["Stations"]}';
+		var stationsStr = '[{"StationName":"\u82b1\u57ce\u6c471","StationName2":"\u82b1\u57ce\u6c47(\u6d4b\u8bd5)","StationCode":"S0192","StationSeq":"1","StationMinutes":"0","StationMile":"","StationType":"1","Price":"0","StationPrice":"0","StationDesp":"\u82b1\u57ce\u5e7f\u573a\u54a8\u8be2\u7535\u8bdd\uff1a13725220488","pic1":"images\/42\/2016\/12\/J7RXUmqUe9WQt7SR0EiGH8qwI9XpXr.png","pic2":"images\/42\/2016\/12\/C0xQXmr1u6utqM3T3mq43xv77M3Zrl.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/J7RXUmqUe9WQt7SR0EiGH8qwI9XpXr.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/C0xQXmr1u6utqM3T3mq43xv77M3Zrl.png","Latitude":"23.131994","Longitude":"113.331258"},{"StationName":"\u5927\u5b66\u57ce\u5317","StationName2":"\u5927\u5b66\u57ce\u5730\u94c1\u5317","StationCode":"S0181","StationSeq":"10","StationMinutes":"10","StationMile":"","StationType":"1","Price":"0","StationPrice":"0","StationDesp":"","pic1":"","pic2":"","StationPic":"","Latitude":"23.064417","Longitude":"113.392309"},{"StationName":"\u73e0\u6d77\u4e09\u7076\u5ba2\u8fd0\u7ad9","StationName2":"\u73e0\u6d77\u4e09\u7076\u5ba2\u8fd0\u7ad9","StationCode":"S0194","StationSeq":"78","StationMinutes":"60","StationMile":"","StationType":"2","Price":"0","StationPrice":"0","StationDesp":"","pic1":"images\/52\/2016\/11\/gzn6H0arxG6HSG5GccG5NNX0Xw6wRA.png","pic2":"images\/52\/2016\/11\/W44L3BBoJzE3fyE3OyL54KLYT3TlYl.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2016\/11\/gzn6H0arxG6HSG5GccG5NNX0Xw6wRA.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2016\/11\/W44L3BBoJzE3fyE3OyL54KLYT3TlYl.png","Latitude":"22.050213","Longitude":"113.356738"},{"StationName":"\u82b3\u6751","StationName2":"\u82b3\u6751","StationCode":"S4699","StationSeq":"80","StationMinutes":"0","StationMile":"","StationType":"3","Price":"0","StationPrice":"0","StationDesp":"","pic1":"images\/52\/2017\/03\/YKweOSWsg817q1L61oOgk8ZQ7UQlU7.jpg","pic2":"images\/52\/2017\/03\/A5xKjC3053K43JjHs5045nRRmjK5L5.jpg","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2017\/03\/YKweOSWsg817q1L61oOgk8ZQ7UQlU7.jpg,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2017\/03\/A5xKjC3053K43JjHs5045nRRmjK5L5.jpg","Latitude":"23.104311","Longitude":"113.242163"},{"StationName":"\u73e0\u6d77\u62f1\u5317","StationName2":"\u73e0\u6d77\u62f1\u5317","StationCode":"S0184","StationSeq":"100","StationMinutes":"10","StationMile":"","StationType":"2","Price":"22","StationPrice":"22","StationDesp":"\u5475\u5475\u54d2","pic1":"images\/42\/2016\/12\/bKx5kFAK6665a4gBEcLboE7Za3EeAk.png","pic2":"images\/42\/2016\/12\/zK7Y3300L6ROU3lu96Ot0t43U66Uyp.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/bKx5kFAK6665a4gBEcLboE7Za3EeAk.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/zK7Y3300L6ROU3lu96Ot0t43U66Uyp.png","Latitude":"22.221567","Longitude":"113.560621"}]';
+		var stations = eval("(" + stationsStr + ")");
+		// 站点排序
+		stations.sort(function (a, b) {
+			return parseInt(a['StationSeq']) > parseInt(b['StationSeq']) ? 1 : -1
+		});
+		var temp = $("#station-temp").html();
+		var stationsHtml = "";
+		// 这个时间需要获取 {$row['SchTime']}
+		var schTime = new Date("2016/01/01 17:00");
+		for (var k = 0; k < stations.length; k++) {
+			stationData.push(stations[k])
+			var vars = new Array()
+			vars["i"] = 2 * k + 1;
+			vars["j"] = 2 * k + 2;
+			vars["k"] = k;
+			vars["station"] = stations[k]['StationName'];
+			vars["code"] = stations[k]['StationCode'];
+			vars["stype"] = stations[k]['StationType'];
+			vars["seq"] = stations[k]['StationSeq'];
+
+			if (vars["stype"] == 1) {
+				vars["chose-icon"] = "up-chose";
+				vars["station-icon"] = '<span class="icon-upstation p-r t-10x m-r-5x in-block fs-20"><span class="path1"></span><span class="path2"></span></span>';
+			} else if (vars["stype"] == 2) {
+				vars["chose-icon"] = "down-chose";
+				vars["station-icon"] = '<span class="icon-downstation p-r t-10x m-r-5x in-block fs-20"><span class="path1"></span><span class="path2"></span></span>';
+			} else if (vars["stype"] == 3) {
+				vars["chose-icon"] = "down-chose";
+				vars["station-icon"] = '<span class="icon-ud-station p-r t-10x m-r-5x in-block fs-20"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>';
+			} else if (vars["stype"] == 4) {
+				continue;
+			}
+
+			vars["line-icon"] = "line";
+			if (k == stations.length - 1) {
+				vars["line-icon"] = "";
+			}
+
+			vars["stationname"] = stations[k]['StationName'];
+			vars["stationdesp"] = stations[k]['StationDesp'];
+			vars["longitude"] = stations[k]['Longitude'];
+			vars["latitude"] = stations[k]['Latitude'];
+
+			schTime.setMinutes(schTime.getMinutes() + parseInt(stations[k]['StationMinutes']), schTime.getSeconds(), 0);
+			var hour = schTime.getHours();
+			var min = schTime.getMinutes();
+			vars["timetips"] = "预计" + (hour < 10 ? ("0" + hour) : hour) + ":" + (min < 10 ? "0" + min : min) + "到";
+
+			vars["stationimg1"] = "";
+			vars["stationimg2"] = "";
+
+			var stationImgArr = stations[k]['StationPic'].split(",");
+			if (stationImgArr.length >= 2) {
+				vars["stationimg1"] = stationImgArr[0];
+				vars["stationimg2"] = stationImgArr[1];
+			} else if (stationImgArr.length >= 1) {
+				vars["stationimg1"] = stationImgArr[0];
+			}
+			var elm = replaceVars(temp, vars);
+			stationsHtml += elm;
+		}
+		$("#container-stations-list").html(stationsHtml);
+	}
+
+	/**区分站点**/
+	function select_station(obj) {
+		var stype = $(obj).attr("stype");
+		code = $(obj).attr("code");
+		$(".choseBox").hide();
+		if (stype == 1) {
+			chose_upstaion(obj);
+		} else if (stype == 2) {
+			chose_downstation(obj);
+		} else if (stype == 3) {
+			$(obj).find(".choseBox").show();
+			that = obj;
+		}
+
+	}
+
+	/**选择上车点**/
+	function chose_upstaion(obj) {
+		$(".chosestatus").removeClass("upstationstatus icon-up-chose");
+		$(".station-name").removeClass("upstationstatus");
+		$(obj).find(".chosestatus").addClass("icon-up-chose upstationstatus");
+		$(obj).find(".station-name").addClass("upstationstatus");
+		if ($(obj).find(".downstationstatus")) {
+			$(obj).find(".chosestatus").removeClass("downstationstatus icon-down-chose");
+			$(obj).find(".station-name").removeClass("downstationstatus");
+		}
+
+		$("#startNode").val(code);
+		$("#startName").text($(obj).attr("stationName"));
+		clacPrice();
+		map.clearOverlays(upstationmk);
+		for (var i in midStations) {
+			map.clearOverlays(midStations[i])
+		}
+		midStations = [];
+		stationLng = $(obj).attr("longitude");
+		stationLat = $(obj).attr("latitude");
+		stationName = $(obj).attr("stationname");
+		stationaddr = new BMap.Point(stationLng, stationLat);
+		stationicon = new BMap.Icon("/resource/img/shuttle/ic_@0302startstation.png", new BMap.Size(30, 30), { anchor: new BMap.Size(4, 36) });
+		upstationmk = new BMap.Marker(stationaddr, {
+			title: stationName,
+			icon: stationicon
+		});
+		map.addOverlay(upstationmk);
+		mapDrawLine();
+		updateCars();
+	}
+
+	/**选择下车点**/
+	function chose_downstation(obj) {
+		$(".chosestatus").removeClass("downstationstatus icon-down-chose");
+		$(".station-name").removeClass("downstationstatus");
+		$(obj).find(".chosestatus").addClass("icon-down-chose downstationstatus");
+		$(obj).find(".station-name").addClass("downstationstatus");
+		if ($(obj).find(".upstationstatus")) {
+			$(obj).find(".chosestatus").removeClass("upstationstatus icon-up-chose");
+			$(obj).find(".station-name").removeClass("upstationstatus");
+		}
+
+		$("#endNode").val(code);
+		$("#endName").text($(obj).attr("stationName"));
+		clacPrice();
+
+		map.clearOverlays(upstationmk);
+		for (var i in midStations) {
+			map.clearOverlays(midStations[i])
+		}
+		midStations = [];
+		stationLng = $(obj).attr("longitude");
+		stationLat = $(obj).attr("latitude");
+		stationName = $(obj).attr("stationname");
+		stationaddr = new BMap.Point(stationLng, stationLat);
+		stationicon = new BMap.Icon("/resource/img/shuttle/ic_@0302endstation.png", new BMap.Size(30, 30), { anchor: new BMap.Size(4, 36) });
+		downstationmk = new BMap.Marker(stationaddr, {
+			title: stationName,
+			icon: stationicon
+		});
+		map.addOverlay(downstationmk);
+		mapDrawLine();
+	}
+
+	/**选择上下车点**/
+	function open_chosebox(type, e) {
+
+		$(that).find(".choseBox").hide();
+		if (window.event) { //这是IE浏览器
+			e.cancelBubble = true; //阻止冒泡事件
+			e.returnValue = false; //阻止默认事件
+		} else if (e && e.stopPropagation) { //这是其他浏览器
+			e.stopPropagation(); //阻止冒泡事件
+			e.preventDefault(); //阻止默认事件
+		}
+		if (type == 1) {
+			chose_upstaion(that);
+		} else if (type == 2) {
+			chose_downstation(that);
+		}
+
+	}
+
+	/**计算价格**/
+	function clacPrice() {
+		var sCode = $("#startNode").val();
+		var eCode = $("#endNode").val();
+		if (!sCode || !eCode) {
+			return;
+		}
+		var priceKey = sCode + "_" + eCode;
+		var price = parseFloat(priceList[priceKey]);
+		if (!price || price <= 0) {
+			price = 0;
+		}
+		var oldprice = price;
+		var conditionDiscount = "-1"; //满M减N优惠（需要获取）{$row['ConditionDiscount']}
+		var reductionDiscount = "-1"; //折扣优惠（需要获取）{$row['ReductionDiscount']}
+		var commonDiscount = "-1"; //立减优惠（需要获取）{$row['CommonDiscount']}
+		if (conditionDiscount != "-1") {
+			var dvals = conditionDiscount.split(",");
+			var MVal = parseFloat(dvals[0]);
+			var NVal = parseFloat(dvals[1]);
+			if (price >= MVal) {
+				price = accSub(price, NVal);
+			}
+		} else if (reductionDiscount != "-1") {
+			price = price * parseFloat(reductionDiscount) / 10;
+		} else if (commonDiscount != "-1") {
+			if (price > parseFloat(commonDiscount)) {
+				price = accSub(price, parseFloat(commonDiscount));
+			}
+		}
+		if (price < oldprice) {
+			$("#oldprice").text("￥" + oldprice.toFixed(2)).show();
+			$("#oldpricetitle").show();
+		} else {
+			$("#oldprice").hide();
+			$("#oldpricetitle").hide();
+		}
+		$("#price").text("￥" + price.toFixed(2));
+	}
+
+	/**提交站点**/
+	function submitAction() {
+		var startStationCode = $("#startNode").val();
+		var dstStationCode = $("#endNode").val();
+		if (!startStationCode || !dstStationCode || startStationCode == dstStationCode) {
+			alert("请重新选择站点");
+			return;
+		}
+		var dateStr = "2018-06-20";//需要获取"{$row['SchDate']}"
+		var SchCode = "R33468";//需要获取"{$row['SchCode']}"
+		var StartCityCode = "440100"//需要获取"{$row['StartCityCode']}"
+		var url = "";
+		var groupType ='';//需要获取
+		if (groupType == 2) {
+			url = "./index.php?i=1&c=entry&pages=order&startCity=440100&schDate=2018-06-20&schCode=R33468&linksource=CG2&sourceparams=%2Aindex%2AIndexeeCustom_&style=orange&scenetype=1&scenesn=SN0001&do=pages&m=ticketorder";
+			url += "&startStation=" + startStationCode + "&dstStation=" + dstStationCode;
+		} else {
+			url = "./index.php?i=1&c=entry&pages=order&linksource=CG2&sourceparams=%2Aindex%2AIndexeeCustom_&style=orange&scenetype=1&scenesn=SN0001&do=pages&m=ruyue"; //,'startCity' => $startCityCode,'schDate' => $row['SchDate'],'schCode' => $row['SchCode']
+			url += "&departCode=" + startStationCode + "&arrivalCode=" + dstStationCode + "&date=" + dateStr + "&scheduleCode=" + SchCode + "&startCityCode=" + StartCityCode;
+		}
+		location.href = url;
+	}
+
+	/**初始化地图**/
+	function mapInit() {
+		// 获取站点(需要获取)
+		var stationsStr = '[{"StationName":"\u82b1\u57ce\u6c471","StationName2":"\u82b1\u57ce\u6c47(\u6d4b\u8bd5)","StationCode":"S0192","StationSeq":"1","StationMinutes":"0","StationMile":"","StationType":"1","Price":"0","StationPrice":"0","StationDesp":"\u82b1\u57ce\u5e7f\u573a\u54a8\u8be2\u7535\u8bdd\uff1a13725220488","pic1":"images\/42\/2016\/12\/J7RXUmqUe9WQt7SR0EiGH8qwI9XpXr.png","pic2":"images\/42\/2016\/12\/C0xQXmr1u6utqM3T3mq43xv77M3Zrl.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/J7RXUmqUe9WQt7SR0EiGH8qwI9XpXr.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/C0xQXmr1u6utqM3T3mq43xv77M3Zrl.png","Latitude":"23.131994","Longitude":"113.331258"},{"StationName":"\u5927\u5b66\u57ce\u5317","StationName2":"\u5927\u5b66\u57ce\u5730\u94c1\u5317","StationCode":"S0181","StationSeq":"10","StationMinutes":"10","StationMile":"","StationType":"1","Price":"0","StationPrice":"0","StationDesp":"","pic1":"","pic2":"","StationPic":"","Latitude":"23.064417","Longitude":"113.392309"},{"StationName":"\u73e0\u6d77\u4e09\u7076\u5ba2\u8fd0\u7ad9","StationName2":"\u73e0\u6d77\u4e09\u7076\u5ba2\u8fd0\u7ad9","StationCode":"S0194","StationSeq":"78","StationMinutes":"60","StationMile":"","StationType":"2","Price":"0","StationPrice":"0","StationDesp":"","pic1":"images\/52\/2016\/11\/gzn6H0arxG6HSG5GccG5NNX0Xw6wRA.png","pic2":"images\/52\/2016\/11\/W44L3BBoJzE3fyE3OyL54KLYT3TlYl.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2016\/11\/gzn6H0arxG6HSG5GccG5NNX0Xw6wRA.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2016\/11\/W44L3BBoJzE3fyE3OyL54KLYT3TlYl.png","Latitude":"22.050213","Longitude":"113.356738"},{"StationName":"\u82b3\u6751","StationName2":"\u82b3\u6751","StationCode":"S4699","StationSeq":"80","StationMinutes":"0","StationMile":"","StationType":"3","Price":"0","StationPrice":"0","StationDesp":"","pic1":"images\/52\/2017\/03\/YKweOSWsg817q1L61oOgk8ZQ7UQlU7.jpg","pic2":"images\/52\/2017\/03\/A5xKjC3053K43JjHs5045nRRmjK5L5.jpg","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2017\/03\/YKweOSWsg817q1L61oOgk8ZQ7UQlU7.jpg,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/52\/2017\/03\/A5xKjC3053K43JjHs5045nRRmjK5L5.jpg","Latitude":"23.104311","Longitude":"113.242163"},{"StationName":"\u73e0\u6d77\u62f1\u5317","StationName2":"\u73e0\u6d77\u62f1\u5317","StationCode":"S0184","StationSeq":"100","StationMinutes":"10","StationMile":"","StationType":"2","Price":"22","StationPrice":"22","StationDesp":"\u5475\u5475\u54d2","pic1":"images\/42\/2016\/12\/bKx5kFAK6665a4gBEcLboE7Za3EeAk.png","pic2":"images\/42\/2016\/12\/zK7Y3300L6ROU3lu96Ot0t43U66Uyp.png","StationPic":"http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/bKx5kFAK6665a4gBEcLboE7Za3EeAk.png,http:\/\/rycoachtest.xunxintech.com\/attachment\/thumbnail\/images\/42\/2016\/12\/zK7Y3300L6ROU3lu96Ot0t43U66Uyp.png","Latitude":"22.221567","Longitude":"113.560621"}]';
+		var stations = eval("(" + stationsStr + ")");
+		stations.sort(function (a, b) {
+			return parseInt(a.StationSeq) - parseInt(b.StationSeq);
+		})
+		// 获取站点坐标（需要获取）
+		pointsStr = '[]';
+
+		if (pointsStr) {
+			points = eval("(" + pointsStr + ")");
+			points.sort(function (a, b) {
+				return parseInt(a.Seq) - parseInt(b.Seq);
+			});
+		} else {
+			points = stations;
+		}
+		if (JSON.parse(pointsStr) == 0) {
+			points = stations;
+		}
+		map = new BMap.Map("allmap", {
+			enableMapClick: false
+		});
+		var point = new BMap.Point(stations[0]['Longitude'], stations[0]['Latitude']);
+		map.centerAndZoom(point, 11);
+		// 初始化导航地图
+		map2 = new BMap.Map("l-map");
+		map2.centerAndZoom(point, 12);
+		map2.enableScrollWheelZoom();
+
+	}
+
+	/**站点连线**/
+	function mapDrawLine() {
+		if (!upstationmk || !downstationmk) {
+			return;
+		}
+		map.removeOverlay(upstationmk);
+		map.removeOverlay(downstationmk);
+		var wpoints = new Array();
+		var n = 0;
+		for (var i in points) {
+			if (points[i].StationName == upstationmk.z.title) {
+				n = i
+			}
+		}
+		var last = points.length;
+		for (var i in points) {
+			if (points[i].StationName == downstationmk.z.title) {
+				last = i
+			}
+		}
+		for (n; n <= last; n++) {
+			wpoints.push(new BMap.Point(points[n].Longitude, points[n].Latitude));
+
+		}
+		var driving = new BMap.DrivingRoute(map, {
+			renderOptions: {
+				map: map,
+				autoViewport: true
+			}
+		});
+		var startIcon = new BMap.Icon("/resource/img/shuttle/ic_@0302startstation.png", new BMap.Size(30, 30));
+		var endIcon = new BMap.Icon("/resource/img/shuttle/ic_@0302endstation.png", new BMap.Size(30, 30));
+		var midIcon = new BMap.Icon('/resource/img/shuttle/ic_@0302stationV2.png', new BMap.Size(30, 30));
+
+		//设置起终点图标
+		driving.setMarkersSetCallback(function (result) {
+			for (var i in result) {
+				if (i == 0 || i == result.length - 1) {
+					$(result[i].marker.V).css('display', 'none');
+					$(result[i].marker.Yc).css("display", 'none');
+				} else {
+
+					if (result[i].Om) {
+						$(result[i].Om.V).css('display', 'none');
+						$(result[i].Om.Yc).css("display", 'none');
+					} else if (result[i].Pm) {
+						$(result[i].Pm.V).css('display', 'none');
+						$(result[i].Pm.Yc).css("display", 'none');
+					} else {
+						var marker = result[i][Object.keys(result[i])[3]];
+						$(marker.V).css('display', 'none');
+						$(marker.Yc).css('display', 'none');
+					}
+
+				}
+			}
+			// 检索站点
+			var n = 0;
+			var nTemp = 0;
+			for (var i in points) {
+				if (points[i].StationName == upstationmk.z.title) {
+					n = i;
+					nTemp = i;
+				}
+			}
+			var last = points.length;
+			var lastTemp = 0;
+			for (var i in points) {
+				if (points[i].StationName == downstationmk.z.title) {
+					last = i
+					lastTemp = i;
+				}
+			}
+			for (n; n <= last; n++) {
+				var myP1 = new BMap.Marker(new BMap.Point(points[n]['Longitude'], points[n]['Latitude']), { icon: midIcon });
+				var label = new BMap.Label("<img src='/resource/img/shuttle/ic_@0302sbiao.png' style='position:absolute;height:22px;top:0px;'><span style='color:#5094d3;margin-left:25px; margin-right:18px;font-size:15px;'>" + points[n].StationName + "</span><img  src='/resource/img/shuttle/ic_@0302bright.png' style='width:6px;margin-left:-15px;margin-right:10px;'>", {
+					offset: new BMap.Size(5, -22)
+				});
+				// 始发站图标
+				if (n == nTemp) {
+					myP1 = new BMap.Marker(new BMap.Point(points[n]['Longitude'], points[n]['Latitude']), { icon: startIcon });
+					var label = new BMap.Label("<img src='/resource/img/shuttle/ic_@0302upbiao.png' style='position:absolute;height:22px;top:0px;'><span style='color:#5094d3;margin-left:25px; margin-right:18px;font-size:15px;'>" + points[n].StationName + "</span><img  src='/resource/img/shuttle/ic_@0302bright.png' style='width:6px;margin-left:-15px;margin-right:10px;'>", {
+						offset: new BMap.Size(5, -22)
+					});
+				}
+				//终点站图标
+				if (n == lastTemp) {
+					myP1 = new BMap.Marker(new BMap.Point(points[n]['Longitude'], points[n]['Latitude']), { icon: endIcon });
+					var label = new BMap.Label("<img src='/resource/img/shuttle/ic_@0302downbiao.png' style='position:absolute;height:22px;top:0px;'><span style='color:#ff4000;margin-left:25px; margin-right:18px;font-size:15px;'>" + points[n].StationName + "</span><img  src='/resource/img/shuttle/ic_@0302rright.png' style='width:6px;margin-left:-15px;margin-right:10px;'>", {
+						offset: new BMap.Size(5, -22)
+					});
+				}
+				myP1.addEventListener("click", attribute, false);
+				midStations.push(myP1);
+				map.addOverlay(myP1);
+
+				label.setStyle({
+					'padding': '0px',
+					"border": "#fff 0px solid",
+					"border-radius": "13px",
+					"text-align": "center",
+					"z-index": "-944315",
+					"height": "20px",
+					"display": "block",
+				})
+				myP1.setLabel(label);
+				label.addEventListener("click", function () {
+
+					for (var i in stationData) {
+						if (stationData[i]['StationName'] == this.V.innerText) {
+							goStations = {
+								Latitude: stationData[i]['Latitude'],
+								Longitude: stationData[i]['Longitude'],
+								name: stationData[i]['StationName']
+							}
+							var img1 = '';
+							var img2 = '';
+							var stationImgArr = stationData[i]['StationPic'].split(",");
+							if (stationImgArr.length >= 2) {
+								img1 = stationImgArr[0];
+								img2 = stationImgArr[1];
+							} else if (stationImgArr.length >= 1) {
+								img1 = stationImgArr[0];
+							}
+							if (img1) {
+								$("#station_img1").attr("src", img1);
+							} else {
+								$("#station_img1").attr("src", "/resource/img/shuttle/nopic.png");
+							}
+							if (img2) {
+								$("#station_img2").attr("src", img2);
+							} else {
+								$("#station_img2").attr("src", "/resource/img/shuttle/nopic.png");
+							}
+							$("#station_desp").text(stationData[i]['StationDesp']);
+							$("#station_name").text(stationData[i]['StationName']);
+							$("#stationDetail").show();
+						}
+					}
+				});
+			}
+		});
+		// 设置线路样式
+		driving.setPolylinesSetCallback(function (result) {
+			for (var line in result) {
+				result[line].getPolyline().setStrokeStyle('dashed')
+				result[line].getPolyline().setStrokeColor('#0fadfa')
+				result[line].getPolyline().setStrokeWeight(3)
+				result[line].getPolyline().setStrokeOpacity(1)
+			}
+		})
+		driving.search(upstationmk, downstationmk, {
+			waypoints: wpoints
+		});
+	}
+	/**展示地图**/
+	function showMap() {
+		$(".container-stations").animate({
+			'height': '0',
+			'opcaity': '0'
+		});
+		$(".map-dropdown").show();
+	}
+
+	/**隐藏地图**/
+	function hideMap() {
+		var heihgt = $(window).height() - 160;
+		$(".container-stations").animate({
+			'height': heihgt + 'px',
+			'opcaity': '1'
+		});
+		$(".map-dropdown").hide();
+	}
+
+	/**展示站点详细**/
+	function showDetail(obj, e) {
+		if (window.event) { //这是IE浏览器
+			e.cancelBubble = true; //阻止冒泡事件
+			e.returnValue = false; //阻止默认事件
+		} else if (e && e.stopPropagation) { //这是其他浏览器
+			e.stopPropagation(); //阻止冒泡事件
+			e.preventDefault(); //阻止默认事件
+		}
+		var stationData = $(obj).parent();
+		goStations = {
+			Latitude: stationData.attr('latitude'),
+			Longitude: stationData.attr('longitude'),
+			name: stationData.attr('stationName')
+		}
+		var stationName = $(obj).attr("stationName");
+		var stationDesp = $(obj).attr("stationDesp");
+		var img1 = $(obj).attr("stationImg1");
+		var img2 = $(obj).attr("stationImg2");
+		if (img1) {
+			$("#station_img1").attr("src", img1);
+		} else {
+			$("#station_img1").attr("src", "/resource/img/shuttle/nopic.png");
+		}
+		if (img2) {
+			$("#station_img2").attr("src", img2);
+		} else {
+			$("#station_img2").attr("src", "/resource/img/shuttle/nopic.png");
+		}
+		$("#station_desp").text(stationDesp);
+		$("#station_name").text(stationName);
+		$("#stationDetail").show();
+	}
+
+	/**隐藏站点详细**/
+	function hideDetail() {
+		$("#stationDetail").hide();
+	}
+
+	/**隐藏提示框**/
+	function hideTips() {
+		$("#tips").hide();
+	}
+
+
+	/**更新车辆位置**/
+	function updaterunscar(runsStrs) {
+		for (var j = 0; j < runscar.length; j++) {
+			map.removeOverlay(runscar[j]);
+		}
+		runsStrs = runsStrs || lastRunsStr;
+		var runs = eval("(" + runsStrs + ")");
+		runscar = new Array();
+		for (var j = 0; j < runs.length; j++) {
+			var rpt = new BMap.Point(runs[j].Longitude, runs[j].Latitude);
+			var myIcon = new BMap.Icon("/resource/img/shuttle/ic_@nowbus0001.gif", new BMap.Size(22, 40));
+			runscar[j] = new BMap.Marker(rpt, { icon: myIcon });
+			runscar[j].CarNumber = runs[j].CarNumber;
+			runscar[j].index = 0;
+			runscar[j].LastLocatetime = runs[j].LastLocatetime;
+			map.addOverlay(runscar[j]);
+			runscar[j].addEventListener("click", addlabel);
+		}
+	}
+
+	function addlabel(e) {
+		var g = e.target;
+		if (g.index == 0) {
+			var carlabel = "";
+			var timestamp = Date.parse(new Date()) / 1000;
+			if (parseInt(timestamp) - parseInt(g.LastLocatetime) > 300) {
+				carlabel = new BMap.Label("<img src='/resource/img/shuttle/ic_@0302busbiao.png' style='position:absolute;width:25px;top:-1px;left:-1px;z-index:-100;'><span style='font-size:15px;color:#666'>" + g.CarNumber + "</span><span  style='color:red;font-size:15px;'> (" + ((parseInt(timestamp) - parseInt(g.LastLocatetime)) / 60).toFixed(0) + "分钟前的位置)</span>", {
+					offset: new BMap.Size(20, -10)
+				});
+				g.setLabel(carlabel);
+			} else if (timestamp - parseInt(g.LastLocatetime) < 300) {
+				carlabel = new BMap.Label("<img src='/resource/img/shuttle/ic_@0302busbiao.png' style='position:absolute;width:25px;top:-1px;left:-1px;z-index:-100;'><span style='font-size:12px;color:#666;'>" + g.CarNumber + "</span><span style='color:red;font-size:15px;'>(当前位置)</span>", {
+					offset: new BMap.Size(20, -10)
+				});
+				g.setLabel(carlabel);
+			}
+
+			$("label.BMapLabel").each(function () {
+				if ($(this).children().attr("src") == "/resource/img/shuttle/ic_@0302upbiao.png" || $(this).children().attr("src") == "/resource/img/shuttle/ic_@0302downbiao.png") {
+					$(this).css("padding", "0px");
+					$(this).css("border", "#fff 0px solid");
+					$(this).css("border-radius", "13px");
+					$(this).css("text-align", "center");
+					$(this).css("z-index", "40");
+					$(this).css("height", "20px");
+				} else {
+					$(this).css("padding", "0px");
+					$(this).css("border", "#fff 0px solid");
+					$(this).css("border-radius", "13px");
+					$(this).css("text-align", "center");
+					$(this).css("top", "-26px");
+					$(this).css("left", "-1px");
+					$(this).css("z-index", "40");
+					$(this).css("height", "20px");
+				}
+			});
+			$("span.BMap_Marker.BMap_noprint").each(function () {
+				if ($(this).css("width") == "19px" && $(this).css("height") == "25px") {
+					$(this).css("z-index", "30");
+				}
+				if ($(this).css("width") == "25px" && $(this).css("height") == "33px") {
+					$(this).css("z-index", "1000000000");
+				}
+			});
+			g.index = 1;
+		} else if (g.index == 1) {
+			map.removeOverlay(g);
+			map.addOverlay(g);
+			g.index = 0;
+		}
+
+	}
+
+	/**获取车辆数组**/
+	function updateCars() {
+		var lineCode = 'L0267';//线路code（需要获取）'{$row["SchLineCode"]}'
+		var date = '2018-06-20';//日期（需要获取）'{$row['SchDate']}';
+		// post请求车辆位置（需要获取）
+		// var queryUrl = "./index.php?i=1&c=entry&pages=getLineCars&do=pages&m=ticketorder&wxref=mp.weixin.qq.com";
+		// $.post(queryUrl, {
+		// 	date: date,
+		// 	linecode: lineCode
+		// }, function (result) {
+		// 	updaterunscar(result);
+		// });
+		updaterunscar('[]');
+	}
+
+
+
+
+	function accAdd(arg1, arg2) {
+		var r1, r2, m;
+		try {
+			r1 = arg1.toString().split(".")[1].length
+		} catch (e) {
+			r1 = 0
+		}
+		try {
+			r2 = arg2.toString().split(".")[1].length
+		} catch (e) {
+			r2 = 0
+		}
+		m = Math.pow(10, Math.max(r1, r2))
+		return (arg1 * m + arg2 * m) / m
+	}
+
+	function accSub(arg1, arg2) {
+		return accAdd(arg1, -arg2);
+	}
+
+	function replaceVars(text, params) {
+		for (p in params) {
+			text = text.replace(new RegExp("\{" + p + "?\}", "g"), params[p]);
+		}
+		return text;
+	}
+	//点击站点图标显示label
+	function attribute(e) {
+		if ($(e.target.Yc).next()) {
+			var label = $(e.target.Yc).next()
+			if (label.css('display') == 'none') {
+				label.css("display", "block");
+			} else if (label.css('display') == 'block') {
+				label.css("display", "none");
+			}
+		}
+		// 调试
+		// label.css("display", "block");
+	}
+</script>
+
+</html>

@@ -1,0 +1,829 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
+}
+a, img, button, input, textarea, div {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+.loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255, 0.6);
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.loading-img{
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}
+.remian-dialog{
+    width: 208px;
+    min-height: 54px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    color: white;
+    display: none;
+}
+.remian-dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+    
+}
+.remian-dialog-btn{
+    width: 60%;
+    margin:auto;
+    padding:5px 0;
+    border:1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+     position: relative;
+     width: 100%;
+     height: 100%;  
+}
+.p-header{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    border-bottom: 1px solid #eeeeee;
+}
+.p-content{
+
+}
+.p-footer{
+    width: 100%;
+    line-height: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+}
+/* 未开通企业班车 */
+.no-shuttle{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+}
+.no-shuttle-img{
+    width: 200px;
+    margin-top:45%;
+    transform: translateY(-50%)
+}
+.no-shuttle-content{
+    margin-top: -14%;
+}
+/* 登录页 */
+.login-box{
+    background-color: white;
+    margin: 15px 10px;
+    padding-bottom: 10px;
+    display: none;
+}
+.login-box__input{
+    width: 90%;
+    margin: 0 auto;
+    height: 58px;
+    line-height: 58px;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+.login-box__input-img{
+    width: 10px;
+    position: relative;
+    top: 2px;
+}
+.login-box__input-item{
+    outline: none;
+    border: 0;
+    margin-left: 5px;
+    font-size: 13px;
+}
+.login-box_btn-box{
+    text-align: center;
+    margin: 30px 0;
+}
+.login-box_btn{
+    background-color: #f79030;
+    color: white;
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.login-box_btn--submit{
+    padding: 10px 28px;
+}
+.login-box_btn--code{
+    line-height: 14px;
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+.login-box_btn--disabled{
+    background-color: #999999;
+}
+/* 主页面 */
+.content-box{
+    /* display: none; */
+}
+.content-box__search{
+    background-color: white;
+    padding: 1px 0;
+}
+.content-box__search-info{
+    font-size: 0;
+    margin: 6px 10px;
+    border:1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px  #dddddd;
+    height: 86px;
+    padding: 8px 12px;
+    padding-right: 0px;
+    box-sizing: border-box; 
+}
+.content-box__search-info-left{
+    display: inline-block;
+    width: 66%;
+    height: 70px;
+    font-size: 14px;
+    position: relative;
+}
+.content-box__search-info-right{
+    display: inline-block;
+    width: 34%;
+    height: 70px;
+    position: relative;
+    font-size: 14px;
+}
+.content-box__search-info-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.content-box__search-info-username{
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 14px;
+}
+.content-box__search-info-company{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 18px;
+}
+.content-box__search-info-rule{
+    color: #999999;
+}
+.content-box__search-info-balanceBox{
+    border-left: 1px solid #dddddd;
+    box-sizing: border-box;
+    margin:6px auto;
+    height: 58px;
+    font-size: 13px
+}
+.content-box__search-info-title{
+    text-align: center;
+    line-height: 27px;
+    color: #333;
+}
+.content-box__search-info-title-img{
+    width: 13px;
+}
+.content-box__search-info-balance{
+    text-align: center;
+    line-height: 29px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f79030;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content-box__search-box{
+    margin: 10px 10px;
+    font-size: 14px;
+}
+.content-box__search-box-input{
+    line-height: 43px;
+    height: 43px;
+    border-bottom: 1px solid #dddddd;
+}
+.content-box__search-box-input-img{
+    width: 15px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+.content-box__search-box-input-content{
+    color: #999999;
+}
+.content-box__search-btn{
+    text-align: center;
+    margin: 15px 0;
+}
+.content-box__search-btn-content{
+    background-color: #f79030;
+    color: white;
+    display: inline-block;
+    padding: 9px 75px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+/* 定时发车列表 */
+.content-box__shuttleList{
+    padding-bottom: 60px;
+}
+.content-box__shuttleList-title{
+    line-height: 26px;
+    font-size: 14px;
+    color: #999999;
+    margin-left: 10px;
+}
+.content-box__shuttleList-item{
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+.content-box__shuttleList-item-title{
+    position: relative;
+}
+.content-box__shuttleList-item-block{
+    border-left: 3px solid #f79030;
+    display: inline-block;
+    height: 13px;
+    position: absolute;
+    top: 1px;
+    left: -10px;
+}
+.content-box__shuttleList-item-name{
+    color: #333;
+}
+.content-box__shuttleList-item-price{
+    color: #f79030;
+    float: right;
+    font-size: 14px;
+}
+.content-box__shuttleList-item-price--small{
+    font-size: 12px;
+}
+.content-box__shuttleList-item-stationInfo{
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+.content-box__shuttleList-item-remain{
+    color: #0fadfa;
+    border: 1px solid #0fadfa;
+    padding:0px 2px;
+    padding-top:1px;
+    margin-right: 5px;
+    border-radius: 2px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+.content-box__shuttleList-item-station{
+    color: #888888;
+}
+.content-box__shuttleList-item-time{
+
+}
+.content-box__shuttleList-item-stationTime{
+    color: #999999;
+    font-size: 12px;
+    position: relative;
+    top: -1px;
+}
+.content-box__shuttleList-item-btn{
+    color: #e99543;
+    font-weight: bold;
+    font-size: 14px;
+    float: right;
+}
+/* 特殊样式 */
+.triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6.5px 0 6.5px 7px;
+    border-color: transparent transparent transparent #e99543;
+    display: inline-block;
+    margin-left: 4px;
+    position: relative;
+    top: 1px;
+}
+.line-split {
+    margin: 0 4px;
+    font-size: 13px;
+    position: relative;
+    top: -1px;
+}
+/* 搜索条 */
+.choose-city {
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+.search-bar{
+    width: 90%;
+    margin:0 auto;
+    line-height: 30px;
+    height: 30px;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 5%;
+}
+
+.cancelbtn{
+    float: left;
+    color:rgba(255, 157, 58, 1);
+    font-size: 16px;
+}
+.search-icon{
+    height:15px;
+    vertical-align: middle;
+    position: relative;
+    top:-2px;
+}
+.search-content{
+    background-color: rgba(244, 244, 244, 1);
+    margin-left: 45px;
+    padding-left:8px;
+    box-sizing: border-box;
+    border-radius: 23px;
+}
+.search-input{
+    border: 0;
+    outline: none;
+    background-color: rgba(244, 244, 244, 1);
+}
+/* 城市列表 */
+.sort_box{
+    padding-bottom: 45px;
+    padding-top: 41px;
+}
+.cityList{
+    width: 100%;
+    overflow: scroll;
+    
+}
+.cityList-title{
+    background-color: rgba(244, 244, 244, 1);
+    height: 30px;
+    color: rgba(204, 204, 204, 1);
+    line-height: 30px;
+    text-indent: 15px;
+    font-size: 12px;
+}
+.cityList-historyList{
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+}
+.cityList-historyList-item{
+    color: #f79030;
+    border:1px solid #f79030;
+    border-radius: 20px;
+    padding: 3px 10px; 
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.cityList-item{
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #ddd;
+    /* border-top: 1px solid rgba(244, 244, 244, 1); */
+    text-indent: 15px;
+}
+.cityList-item-search{
+    text-indent: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.cityList-item-search-name{
+    line-height: 20px;
+    height: 20px;
+}
+.cityList-item-search-remark{
+    line-height: 18px;
+    height: 18px;
+    font-size: 13px;
+    color: #999999;
+}
+.cityList-item_none{
+    height: 38px;
+    line-height: 38px;
+    padding-top:10px;
+    border-top: 1px solid rgba(244, 244, 244, 1);
+    text-align: center;
+}
+/* 底部样式 */
+.footer{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: rgba(244, 244, 244, 1);
+    width: 100%;
+    font-size: 18px;
+    position: relative;
+    z-index: 5;
+}
+.select-icon{
+    height: 10px;
+    vertical-align: middle;
+}
+
+.footer-box{
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+.footer-list{
+    position: absolute;
+    width: 100%;
+    bottom: 44px;
+    max-height: 180px;
+    overflow: scroll;
+}
+.footer-item{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: white;  
+    border-bottom: 2px solid rgba(244, 244, 244, 1);
+    width: 100%;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+.footer-item_select{
+    color: rgba(255, 157, 58, 1);
+}
+.select-data{
+    display: none
+}
+/* 搜索地区 */
+.choose-area {
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 7;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+.choose-area-header{
+    line-height: 40px;
+    border-bottom: 1px solid #eaeaea;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+}
+.choose-area-header-name{
+    float: left;
+    width: 30%;
+    position: relative;
+}
+.choose-area-header-back{
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+    width: 20px;
+}
+.choose-area-header-name--orange{
+    color: #f79030;
+}
+.choose-area-header-center{
+    text-align: center;
+    float: left;
+    width: 40%;
+    position: relative;
+    color: #333;
+}
+#letter {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    font-size: 75px;
+    color: #555;
+    text-align: center;
+    line-height: 100px;
+    background: rgba(145, 145, 145, 0.6);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0px 0px -50px;
+    z-index: 1009;
+    display: none;
+}
+
+#letter img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 25px 0px 0px 25px;
+}
+.initials {
+    position: fixed;
+    top: 47px;
+    right: 0px;
+    height: 100%;
+    width: 15px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 12px;
+    z-index: 4;
+}
+.sort_letter {
+    height: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+    color: #787878;
+    font-size: 14px;
+    background: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+ul{
+    list-style: none;
+}
+.sort_list{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+}
+.sort_list-img{
+    height: 20px;
+    margin-left: 10px;
+    position: relative;
+    top: 2px;
+}
+.num_name{
+    margin-left: 10px;
+    color: #333;
+}
+.area-choose{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: rgba(244, 244, 244, 1);
+    width: 100%;
+    font-size: 18px;
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+}
+.area-box{
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    z-index: 5;
+}
+.area-list{
+    position: fixed;
+    width: 100%;
+    bottom: 45px;
+    max-height: 180px;
+    overflow: scroll; 
+}
+.area-item{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: white;  
+    border-bottom: 2px solid rgba(244, 244, 244, 1);
+    width: 100%;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+.area-item_select{
+    color: rgba(255, 157, 58, 1);
+}
+/* 选择目的地 */
+.choose-destination {
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+.choose-destination-header{
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+}
+.choose-destination-header-name{
+    float: left;
+    width: 30%;
+    position: relative;
+}
+.choose-destination-header-back{
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+    width: 20px;
+}
+.choose-destination-header-center{
+    text-align: center;
+    float: left;
+    width: 40%;
+    position: relative;
+    color: #333;
+}
+.choose-destination__cityList{
+    width: 100%;
+    overflow: scroll;
+}
+.choose-destination__cityList-title{
+    background-color: rgba(244, 244, 244, 1);
+    height: 30px;
+    color: rgba(204, 204, 204, 1);
+    line-height: 30px;
+    text-indent: 15px;
+    font-size: 12px;
+}
+.choose-destination__cityList-item{
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #dddddd;
+    text-indent: 15px;
+}
+/* 地点详情 */
+#stationDetail {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: 8;
+	display: none;
+}
+.black-mask {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	top: 0;
+}
+
+#stationDetail-box {
+	position: fixed;
+	width: 80%;
+	left: 10%;
+	top: 50%;
+	transform: translateY(-50%);
+	background: white;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.infoBox-title {
+    width: 90%;
+    margin: auto;
+}
+
+.infoBox-content {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 50px;
+    overflow: scroll;
+    font-size: 14px;
+    color: #999;
+}
+
+.infoBox-btn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    color: #F69C42;
+}
+.goRoad {
+    text-align: right;
+    margin-bottom: 5px;
+    color: #10a1e0;
+    cursor: pointer;
+}
+/* 百度地图详情 */
+.mapV2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    z-index: 9;
+}
+.mapV2-box{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.mapV2-box__title{
+    height: 40px;
+	line-height: 40px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+.mapV2-box__title-back{
+    position: absolute;
+	left: 10px;
+    top: 10px;
+    height: 20px;
+}
+#l-map {
+    height: 300px;
+    width: 100%;
+}
+#r-result{
+
+}

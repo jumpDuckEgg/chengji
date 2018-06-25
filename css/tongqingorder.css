@@ -1,0 +1,485 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
+}
+a, img, button, input, textarea, div {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+.loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255, 0.6);
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.loading-img{
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}
+.remian-dialog{
+    width: 208px;
+    min-height: 54px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    color: white;
+    display: none;
+}
+.remian-dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+    
+}
+.remian-dialog-btn{
+    width: 60%;
+    margin:auto;
+    padding:5px 0;
+    border:1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+     position: relative;
+     width: 100%;
+     height: 100%;  
+}
+.headbar{
+    height: 38px;
+    line-height: 38px;
+    background-color: #f79030;
+    width: 100%;
+    color: white;
+    position: relative;
+}
+.headbar-left{
+    position: absolute;
+    left: 10px;
+    top: 3px;
+}
+.headbar-left-img{
+    width: 9px;
+}
+.headbar-center{
+ text-align: center;
+ margin: 0 82px;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ white-space: nowrap;
+}
+.headbar-right{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 11px;
+}
+.lineTime{
+    background: #feb163;
+    color: white;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    font-size:13px;
+    position: relative;
+    z-index: 2;
+}
+.order-box{
+    position: relative;
+    
+}
+.order-box__bg{
+    width: 100%;
+    height: 90px;
+    position: relative;
+    top: -2px;
+    background-color: white;
+}
+.order-box__info{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 90px;
+    color:white;
+    font-size: 15px;
+    padding-top: 3px;
+}
+.order-box__info-item{
+    height: 28px;
+    line-height: 28px;
+    padding:0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.order-box__info-item-icon{
+    width: 14px;
+    position: relative;
+    top: 2px;
+}
+.order-box__info-item-content{
+    padding-right: 20px;
+    width: 100%;
+}
+.order-box__info-item-place{
+    width: 9px;
+    position: relative;
+    top: 10px;
+    float: right;
+}
+.order-box__info-item-other{
+    height: 20px;
+    line-height: 20px;
+    padding:0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgba(255,255,255, 0.8);
+    font-size: 11px;
+}
+.order-box__info-item-other-time{
+
+}
+.order-box__info-item-other-type{
+
+}
+.order-box__info-item-other-line{
+    float: right;
+}
+.order-box__info-item-other-line-img{
+    width: 5px;
+    margin-left: 5px;
+}
+.order-box__payway{
+    background-color: white;
+    padding:0 10px;
+    position: relative;
+    top: -6px;
+}
+.order-box__payway-title{
+    line-height: 32px;
+    height:32px;
+    font-size: 13px;
+    color: #333;
+}
+.order-box__payway-title-remain{
+    color: #999999;
+    margin-left: 5px;
+    font-size: 11px;
+}
+.order-box__payway-item{
+    line-height: 45px;
+    height: 45px;
+    border-top: 1px solid #dddddd;
+    font-size: 14px;
+    position: relative;
+}
+.order-box__payway-item-title{
+    margin-left: 5px;
+}
+.order-box__payway-item-title--nomoney{
+    color: #999999;
+}
+.order-box__payway-item-remain{
+    color: #e2451b;
+    font-size: 11px;
+    margin-left: 3px;
+    display: none;
+}
+.order-box__payway-item-remain--show{
+    display: inline;
+}
+.order-box__payway-item-img{
+    width: 15px;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+}
+.order-rule{
+    line-height: 35px;
+    height: 35px;
+    text-align: right;
+    color: #999999;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.order-rule-img{
+    width: 11px;
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+}
+.footer{
+    height: 38px;
+    line-height: 38px;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #444;
+}
+.order-pice{
+    color: #f79030;
+    margin-left: 5px;
+}
+.order-submitBtn{
+    background-color: #f79030;
+    line-height: 13px;
+    border-radius: 20px;
+    color: white;
+    padding: 7px 20px;
+    position: absolute;
+    right: 30px;
+    top: 6px;
+    
+}
+/* 地点详情 */
+#stationDetail {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: 10;
+	display: none;
+}
+.black-mask {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	top: 0;
+}
+
+#stationDetail-box {
+	position: fixed;
+	width: 80%;
+	left: 10%;
+	top: 50%;
+	transform: translateY(-50%);
+	background: white;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.infoBox-title {
+    width: 90%;
+    margin: auto;
+}
+
+.infoBox-content {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 50px;
+    overflow: scroll;
+    font-size: 14px;
+    color: #999;
+}
+
+.infoBox-btn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    color: #F69C42;
+}
+.goRoad {
+    text-align: right;
+    margin-bottom: 5px;
+    color: #10a1e0;
+    cursor: pointer;
+}
+/* 百度地图详情 */
+.mapV2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    z-index: 10;
+}
+.mapV2-box{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.mapV2-box__title{
+    height: 40px;
+	line-height: 40px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+.mapV2-box__title-back{
+    position: absolute;
+	left: 10px;
+    top: 10px;
+    height: 20px;
+}
+#l-map {
+    height: 300px;
+    width: 100%;
+}
+#r-result{
+
+}
+/* 百度地图全程路线 */
+.map {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    z-index: 9;
+}
+.map-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.map-box__remain{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #feb163;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    font-size: 13px;
+    padding-left: 10px;
+    z-index: 3;
+}
+.map-box__content{
+    width: 100%;
+    height: 100%;
+}
+/* 购票规则 */
+.rule{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1010;
+    display: none;
+}
+.rule-box{
+    width: 80%;
+    height: 60%;
+    background-color: rgba(255, 154, 36, 1);
+    position: absolute;
+    top:45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 1rem;
+    overflow: hidden;
+    color: white;
+}
+.rule-content{
+    height: 90%;
+    width: 90%;
+    margin: 5% 5%;
+    overflow: scroll;
+    color: white;
+}
+.rule-title{
+    line-height: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.smallcircleV3{
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    bottom: -.5rem;
+    right: 9.5rem;
+}
+.bigcircleV3{
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    bottom: -4rem;
+    right: 0.6rem;
+}
+.close-btn{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.close-btn img{
+    width: 2rem;
+    height: 2rem;   
+}

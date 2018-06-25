@@ -1,0 +1,167 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
+}
+a, img, button, input, textarea, div {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+.loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255, 0.6);
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.loading-img{
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}
+.remian-dialog{
+    width: 208px;
+    min-height: 54px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    color: white;
+    display: none;
+}
+.remian-dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+    
+}
+.remian-dialog-btn{
+    width: 60%;
+    margin:auto;
+    padding:5px 0;
+    border:1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+     position: relative;
+     width: 100%;
+     height: 100%;  
+}
+/* 头部金额 */
+.header-box{
+    background-color: #f79030;
+    text-align: center;
+    color: white;
+    padding-top: 26px;
+    padding-bottom: 15px;
+}
+.header-box__price{
+    font-size: 42px;
+}
+.header-box__remain{
+    color: #f3f3f3;
+    font-size: 13px;
+    line-height: 22px;
+}
+.header-box__time{
+    color: #f3f3f3;
+    font-size: 13px;
+    margin-top: 11px;
+}
+/* 流水 */
+.record-box{
+    height: 270px;
+    overflow: scroll;
+}
+.record-box-title{
+    color: #555;
+    line-height: 25px;
+    height: 25px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.record-box-item{
+    position: relative;
+    background-color: white;
+    border-bottom:1px solid #eeeeee;
+    padding:5px 10px;
+}
+.record-box-item-time{
+    font-size: 14px;
+    line-height: 23px;
+    height: 23px;
+}
+.record-box-item-message{
+    font-size: 12px;
+    color: #777777;
+    line-height: 20px;
+    height: 20px;
+}
+.record-box-item-price{
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    top:20px;
+}
+.record-box-item-price--add{
+    color: #2dae23;
+}
+.record-box-item-price--minus{
+    color: red;
+}

@@ -638,3 +638,12 @@ a{
 	height: 100%;
 	width: 100%;
 }
+.b-d-1{
+	border-bottom: 1px dashed #eaeaea;
+}
+.fs-13{
+	font-size: 13px;
+}
+.h-10x{
+	height: 10px;
+}

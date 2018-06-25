@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
+    <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>如约城际</title>
+</head>
+
+<body>
+    <div class="main">
+        <input id="imgInp" type="file" accept="image/*" capture="camera" multiple>
+
+        <div style="width: 300px;height: 400px;border: 1px solid black;">
+            <img id="blah" style="width: 300px;height: 400px; " src="" alt="">
+        </div>
+        <div>
+            <button class="sub">按钮</button>
+        </div>
+        <div style="width: 300px;height: 400px;border: 1px solid black;">
+            <img id="blah2" style="width: 300px;height: 400px; " src="" alt="">
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+    
+
+
+    var appkey = 'FwfG7x82k1wQXU02';
+    var appID = 1106850849;
+    var imgBase = '';
+    var sign = '';
+    var submitData = {
+        'app_id':appID,
+        'image':'',
+        'model':8,
+        'nonce_str':"asd",
+        'time_stamp':0
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+                console.log(e.target.result);
+                imgBase = (""+e.target.result).split(',')[1];
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+
+    $('.sub').click(function(){
+        submitData['nonce_str'] = "as"+Math.floor(new Date().getTime()/1000);
+        submitData['image'] = imgBase;
+        submitData['time_stamp'] = Number(Math.floor(new Date().getTime()/1000));
+        
+        sign = getReqSign(submitData);
+        console.log(sign)
+        submitData['sign'] = sign;
+
+        $.ajax({  
+            type:'post',  
+            dataType :'json',                  
+            contentType:'application/x-www-form-urlencoded; charset=utf-8',     
+            url:"https://api.ai.qq.com/fcgi-bin/ptu/ptu_facemerge",  
+            data:submitData,  
+            
+            success:function(data){  
+              if(data.ret == 0){
+                var str = 'data:image/png;base64,'+data.data.image;
+                console.log(str)
+                $('#blah2').attr('src', str);
+              }
+            },  
+            error:function(data){
+                console.log(data)  
+                alert("error:"+data);  
+            }  
+        });  
+
+
+    })
+        //php函数urlencode的js实现方法
+        var  URLEncode = function(clearString) {
+            var output = '';
+            var x = 0;
+            clearString = clearString.toString();
+            var regex = /(^[a-zA-Z0-9-_.]*)/;
+            while (x < clearString.length) {
+                var match = regex.exec(clearString.substr(x));
+                if (match != null && match.length > 1 && match[1] != '') {
+                    output += match[1];
+                    x += match[1].length;
+                } else {
+                    if (clearString.substr(x, 1) == ' ') {
+                        //原文在此用 clearString[x] == ' ' 做判断, 但ie不支持把字符串当作数组来访问, 
+                        //修改后两种浏览器都可兼容 
+                        output += '+';
+                    }
+                    else {
+                        var charCode = clearString.charCodeAt(x);
+                        var hexVal = charCode.toString(16);
+                        output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+                    }
+                    x++;
+                }
+            }
+            return output;
+        }
+
+        /** 
+         * param 将要转为URL参数字符串的对象 
+         * key URL参数字符串的前缀 
+         * encode true/false 是否进行URL编码,默认为true 
+         *  
+         * return URL参数字符串 
+         */  
+        var jsonToURL = function (param, key, encode) {  
+            if(param==null) return ''; 
+            
+            var paramStr = '';  
+            var t = typeof (param);  
+            if (t == 'string' || t == 'number' || t == 'boolean') {  
+                paramStr += '&' + key + '=' + ((encode == null || encode) ? URLEncode(param) : param);
+            } else {  
+                for (var i in param) {  
+                    var k = key == null ? i : key + (param instanceof Array ? '[' + i + ']' : '.' + i);  
+                    paramStr += jsonToURL(param[i], k, encode);
+                }  
+            }
+
+            return paramStr;  
+        };
+
+        var objKeySort = function(arys) {
+            //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
+            var newkey = Object.keys(arys).sort();
+            //console.log('newkey='+newkey);
+            var newObj = {}; //创建一个新的对象，用于存放排好序的键值对
+            for (var i = 0; i < newkey.length; i++) {
+                //遍历newkey数组
+                newObj[newkey[i]] = arys[newkey[i]];
+                //向新创建的对象中按照排好的顺序依次增加键值对
+
+            }
+            return newObj; //返回排好序的新对象
+        }
+
+        var getReqSign = function (param) {
+            var appKey = 'FwfG7x82k1wQXU02'
+            var json = objKeySort(param);
+            var str = jsonToURL(json);
+            str = str.substr(1,str.length);
+
+            str += '&' + 'app_key' + '=' + appKey;
+            //str = str.replace(/[\n]/ig, '');.replace(/\ +/g,'');
+            console.log(str)
+            var md5Str = md5(str || '');
+
+            // return angular.uppercase(md5Str);
+            return (md5Str).toUpperCase();
+        }
+
+
+
+
+</script>
+
+</html>

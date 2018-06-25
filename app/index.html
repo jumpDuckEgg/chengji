@@ -2,96 +2,160 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="resource/css/normalize.css">
-    <script src="resource/js/jquery-2.2.0.js"></script>
-    <script src="js/md5.js"></script>
-    <script src="js/main.js"></script>
-    <title>如约城际</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="resource/css/normalize.css">
+	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=7HvimsX4u5PxqLYVvUcDw1F6GnaTFYLe&s=1"></script>
+	<script src="resource/js/jquery-2.2.0.js"></script>
+	<script src="js/main.js"></script>
+	<script src="resource/js/iscroll.js"></script>
+	<title>如约城际</title>
 </head>
 
 <body>
-    <div class="main">
-        <input id="imgInp" type="file" accept="image/*" capture="camera" multiple>
+	<div class="main">
+		<div class="headbar">
+			<div class="headbar-left">
+				<img src="resource/img/shuttle/left.png" alt="" class="headbar-left-img">
+			</div>
+			<div class="headbar-center">订单记录</div>
+			<div class="headbar-right">更多</div>
+		</div>
+		<div class="orderInfo-box">
+			<div class="orderInfo-box__time">
+				<div class="orderInfo-box__time-line"></div>
+				<div class="orderInfo-box__time-content">
+					<span class="orderInfo-box__time-content--bg">2017/03/12明天12:00发车</span>
+				</div>
+			</div>
+			<div class="orderInfo-box__info">
+				<div class="orderInfo-box__info-item">
+					<img src="resource/img/shuttle/upicon.png" alt="" class="orderInfo-box__info-item-icon">
+					<span class="orderInfo-box__info-item-content">省站汽车客运站</span>
+					<span class="orderInfo-box__info-item-content-city">(广州)</span>
+					<img src="resource/img/shuttle/map02.png" alt="" class="orderInfo-box__info-item-place">
+				</div>
+				<div class="orderInfo-box__info-item">
+					<img src="resource/img/shuttle/downicon.png" alt="" class="orderInfo-box__info-item-icon">
+					<span class="orderInfo-box__info-item-content">深圳大剧院</span>
+					<span class="orderInfo-box__info-item-content-city">(深圳)</span>
+					<img src="resource/img/shuttle/map02.png" alt="" class="orderInfo-box__info-item-place">
+				</div>
+				<div class="orderInfo-box__info-otherbox">
+					<div class="orderInfo-box__info-otherbox-item">
+						车牌号：粤A45123
+						<span class="orderInfo-box__info-otherbox-item-line">查看车辆实时位置
+							<img src="resource/img/shuttle/ic_toRight.png" alt="" class="orderInfo-box__info-otherbox-item-line-img">
+						</span>
+					</div>
+					<div class="orderInfo-box__info-otherbox-item">
+						线路：广州-深圳 | 车型:豪华大巴
+					</div>
+					<div class="orderInfo-box__info-otherbox-item">
+						服务商：广交长运(020-38617856)
+					</div>
+				</div>
 
-        <div style="width: 300px;height: 400px;border: 1px solid black;">
-            <img id="blah" style="width: 300px;height: 400px; " src="" alt="">
-        </div>
-        <div>
-            <button class="sub">按钮</button>
-        </div>
-    </div>
+			</div>
+		</div>
+		<div class="orderTicket-box">
+			<div class="orderTicket-box__header">
+				<div class="orderTicket-box__header-orderNo">
+					订单号:170000269306021532293
+				</div>
+				<div class="orderTicket-box__header-orderPrice">
+					票价:￥22.00
+				</div>
+			</div>
+			<div class="orderTicket-box__content">
+				<div class="orderTicket-box__content-title">电子票号</div>
+				<div class="orderTicket-box__content-number">1234567</div>
+				<div class="orderTicket-box__content-lineName">广州-深圳</div>
+				<div class="orderTicket-box__content-qrcode">
+					<img src="resource/img/shuttle/ic_@qrcode.png" alt="" class="orderTicket-box__content-qrcode-img">
+				</div>
+				<div class="orderTicket-box__content-addcard">
+					<span class="orderTicket-box__content-addcard-content">添加到微信卡包</span>
+				</div>
+				<img src="resource/img/shuttle/checkTicket.png" alt="" class="orderTicket-box__content-flag">
+			</div>
+			<div class="orderTicket-box__operation">
+				<div class="orderTicket-box__operation-item">
+					<img src="resource/img/shuttle/refundbtn.png" alt="" class="orderTicket-box__operation-item-refundbtn">
+					<div class="orderTicket-box__operation-item-content">申请退款</div>
+				</div>
+				<div class="orderTicket-box__operation-item">
+					<img src="resource/img/shuttle/refundbtn.png" alt="" class="orderTicket-box__operation-item-changeticketbtn">
+					<div class="orderTicket-box__operation-item-content">申请改签</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 地点详情 -->
+	<div id="stationDetail">
+		<div class="black-mask" onclick="hideDetail()"></div>
+		<div id="stationDetail-box">
+			<div id="stationDetail-imgs-list" style="max-height: 300px;overflow: scroll;">
+				<img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img1">
+				<img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img2">
+			</div>
+			<div id="station_name" class="infoBox-title">
+				<strong></strong>
+			</div>
+			<div id="station_desp" class="infoBox-content">
+			</div>
+			<div class="goRoad">
+				到这里去 >
+			</div>
+			<div class="infoBox-btn">
+				返回
+			</div>
+		</div>
+	</div>
+	<!-- 百度地图详情 -->
+	<div class="mapV2">
+		<div class="mapV2-box">
+			<div class="mapV2-box__title">
+				<img src="resource/img/shuttle/left.png" class="mapV2-box__title-back" onclick="$('.mapV2').hide()" />
+				<span>路线导航</span>
+			</div>
+			<div id="l-map">
+			</div>
+			<div id="r-result">
+			</div>
+		</div>
+	</div>
+	<!-- 百度地图全程路线 -->
+	<div class="map">
+		<div class="map-box">
+			<div class="map-box__remain">车辆距下个站点还有
+				<strong>2</strong>公里</div>
+			<div class="map-box__content" id="allmap">
+
+			</div>
+		</div>
+	</div>
+	<!-- 对话框 -->
+	<div class="mask">
+		<div class="dialog">
+			<div class="dialog-content"></div>
+			<div class="dialog-btn">
+				确定
+			</div>
+		</div>
+	</div>
+	<!-- 提示框 -->
+	<div class="remian-dialog">
+		<div class="remian-dialog-content"></div>
+	</div>
+	<!-- loading页面 -->
+	<div class="loading">
+		<img src="resource/img/shuttle/loading.svg" alt="" class="loading-img">
+	</div>
 </body>
 
-<script>
-    var appkey = 'FwfG7x82k1wQXU02';
-    var appID = '1106850849';
-    var imgBase = '';
-    var sign = '';
-    var submitData = {
-        'app_id':appID,
-        'image':'',
-        'model':3,
-        'nonce_str':'20e3408a88',
-        'sign':'',
-        'time_stamp':new Date().getTime()/1000
-    }
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-                imgBase =(""+e.target.result).split(',')[1];
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#imgInp").change(function () {
-        readURL(this);
-    });
-
-    $('.sub').click(function(){
-        submitData['image'] = imgBase;
-        submitData['time_stamp'] = Math.floor(new Date().getTime()/1000);
-        var str = '';
-        for(var i in submitData){
-            if(submitData[i]!= ''){
-                str += (i+'='+encodeURIComponent(submitData[i])+'&')
-            }   
-        }
-        str += ('app_key='+appkey);
-        sign = md5(str).toUpperCase();
-        submitData['sign'] = sign;
-        console.log(submitData)
-        $.ajax({  
-            type:'post',  
-            dataType :'json',                  
-            contentType:'application/x-www-form-urlencoded; charset=utf-8',     
-            url:"https://api.ai.qq.com/fcgi-bin/ptu/ptu_facemerge",  
-            data:submitData,  
-            success:function(data){  
-              console.log(data)
-            },  
-            error:function(data){
-                console.log(data)  
-                alert("error:"+data);  
-            }  
-        });  
-
-    })
-
-    function changeSign(params, appkey) {
-
-    }
-
-
-
-
-</script>
 
 </html>

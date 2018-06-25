@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/claim.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
+    <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="resource/js/iscroll.js"></script>
+    <script src="js/hourtime-scroll.js"></script>
+    <script src="js/claim.js"></script>
+    <title>如约城际</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="container-title">我的诉求</div>
+            <div class="container-content">
+                <div class="container-content-item">
+                    <span style="color:#0fadfa;margin-right:10px;margin-left:5px;">●</span>
+                    <input type="text" placeholder="上车点" class="up-place">
+                </div>
+                <div class="container-content-item">
+                    <span style="color:#f07930;margin-right:10px;margin-left:5px;">●</span>
+                    <input type="text" placeholder="下车点" class="down-place">
+                </div>
+                <div class="container-content-item starttime">
+                    <span class="container-content-item-clock">
+                        <img src="./resource/img/time.png" alt="" class="icon">
+                    </span><span class="time-content">发车时间</span>
+                </div>
+                <div class="container-content-item endtime">
+                    <span class="container-content-item-clock">
+                        <img src="./resource/img/time.png" alt="" class="icon">
+                    </span><span class="time-content">返程时间</span>
+                </div>
+                <div class="container-content-item">
+                    <span class="container-content-item-phone">
+                        <img src="./resource/img/mobile-phone.png" alt="" class="icon-phone">
+                    </span>
+                    <input type="number" placeholder="联系方式" class="mobile">
+                </div>
+                <div class="container-content-item-remian">
+                    *线路开通后我们将第一时间联系你
+                </div>
+            </div>
+        </div>
+        <div class="sumbitBtn-box">
+            <span class="sumbitBtn-content">提 交</span>
+        </div>
+    </div>
+    <div class="mask">
+        <div class="dialog">
+            <div class="dialog-content"></div>
+            <div class="dialog-btn">
+                确定
+            </div>
+        </div>
+    </div>
+    <div id="scrollTime" class="overflow-a p-f  z-100 w-100 t-0 h-100 "></div>
+</body>
+
+
+
+</html>

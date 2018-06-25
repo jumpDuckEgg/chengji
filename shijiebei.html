@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/shijiebei.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
+    <script src="resource/js/jquery-2.2.0.js"></script>
+    <title>如约城际</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+
+        </div>
+        <div class="container">
+            <div class="container-item start-box">
+                <div class="container-item-title">一、参加竞猜，赢大奖</div>
+                <div class="discuss-box">
+                    <div class="discuss-content">
+                        <div class="discuss-content-title">
+                            我的预测是这样
+                        </div>
+                        <div class="discuss-content-answer ">
+                            1、四强队伍：
+                            <span class="fourTeam-answer"></span>
+                        </div>
+                        <div class="discuss-content-answer ">
+                            2、冠军队伍：<span class="winner-answer"></span>
+                        </div>
+                        <div class="discuss-content-answer  ">
+                            3、最佳射手：<span class="bestOne-answer"></span>
+                        </div>
+                    </div>
+                    <div class="discuss-btn">
+                        马上答题
+                    </div>
+                </div>
+                <div class="rule-box">
+                    <div class="rule-item">
+                        <div class="rule-item-title">
+                            竞猜规则：
+                        </div>
+                        <div class="rule-item-content">
+                            活动期间（2018年6月8日00:00——2018年7月4日24:00），用户可在本页面参与本届世界杯前四强球队、冠军球队及最佳射手的竞猜活动。
+                        </div>
+                        <div class="rule-item-content">
+                            1、活动期间每个ID仅限参与一次；
+                        </div>
+                        <div class="rule-item-content">
+                            2、同时完成三道竞猜题，提交您的答案；
+                        </div>
+                        <div class="rule-item-content">
+                            3、同一ID三道题均回答正确，且排名靠前的前20名将获得大奖。
+                        </div>
+                        <div class="rule-item-content">
+                            4、中奖结果将在活动结束后“如约城际”公众号第一次推文中进行公布，敬请留意。
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item-title">
+                            奖品设置：
+                        </div>
+                        <div class="rule-item-content">
+                            巴西队队服一套
+                        </div>
+                        <div class="rule-item-content">
+                            羊城通2018世界杯纪念卡
+                        </div>
+                    </div>
+                </div>
+                <div class="rule-split"></div>
+                <div class="container-item-title">二、玩游戏，赢大奖</div>
+                <div class="game-box">
+                    <div class="game-remain">
+                        <div class="game-remain-content">距离游戏开始时间:</div>
+                        <div class="game-remain-content">
+                            <span class="game-remain-time game-hour">01</span>小时
+                            <span class="game-remain-time game-minutes">01</span>分
+                            <span class="game-remain-time game-second">01</span>秒</div>
+                    </div>
+                </div>
+                <div class="rule-box">
+                    <div class="rule-item">
+                        <div class="rule-item-title">
+                            活动期间：
+                        </div>
+                        <div class="rule-item-content">
+                            （2018年6月19日00:00——2018年7月14日）
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item-title">
+                            游戏规则：
+                        </div>
+                        <div class="rule-item-content">
+                            “带球过人”游戏启动期间，对游戏分数进行排行，游戏结束后排名前10,将获得大奖
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item-title">
+                            奖品设置：
+                        </div>
+                        <div class="rule-item-content">
+                            第一名：珠海长隆海洋王国双人游玩套票
+                        </div>
+                        <div class="rule-item-content">
+                            第2名——10名：XXXXXXXXXXX
+                        </div>
+                    </div>
+                </div>
+                <div class="rule-split"></div>
+                <div class="container-item-title">二、见证冠军之路，豪抢现金红包</div>
+                <div class="game-box">
+
+                </div>
+                <div class="game-remainV2">
+                    下一轮红包雨（2018年7月6日10:00）
+                </div>
+            </div>
+            <div class="container-item fourTeam-box">
+                <div class="container-item-titleV2">选择你心中的四强队伍</div>
+                <div class="choose-box">
+                    <div class="choose-box-title">出线队伍：
+                        <span class="teamOneWinner"></span>
+                    </div>
+                    <div class="select-box">
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">A组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>俄罗斯</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='俄罗斯'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>埃及</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='埃及'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>沙特阿拉伯</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='沙特阿拉伯'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>乌拉圭</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='乌拉圭'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">B组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>伊朗</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='伊朗'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>摩洛哥</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='摩洛哥'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>葡萄牙</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='葡萄牙'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>西班牙</span>
+                                <div class="select-box-list-item-btn teamOne" data-team='西班牙'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="choose-box">
+                    <div class="choose-box-title">出线队伍：
+                        <span class="teamTwoWinner"></span>
+                    </div>
+                    <div class="select-box">
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">C组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>澳大利亚</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='澳大利亚'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>丹麦</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='丹麦'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>法国</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='法国'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>秘鲁</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='秘鲁'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">D组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>阿根廷</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='阿根廷'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>克罗地亚</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='克罗地亚'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>冰岛</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='冰岛'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>尼日利亚</span>
+                                <div class="select-box-list-item-btn teamTwo" data-team='尼日利亚'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="choose-box">
+                    <div class="choose-box-title">出线队伍：
+                        <span class="teamThreeWinner"></span>
+                    </div>
+                    <div class="select-box">
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">E组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>巴西</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='巴西'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>哥斯达黎加</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='哥斯达黎加'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>瑞士</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='瑞士'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>塞尔维亚</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='塞尔维亚'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">F组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>德国</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='德国'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>韩国</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='韩国'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>墨西哥</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='墨西哥'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>瑞典</span>
+                                <div class="select-box-list-item-btn teamThree" data-team='瑞典'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="choose-box">
+                    <div class="choose-box-title">出线队伍：
+                        <span class="teamFourWinner"></span>
+                    </div>
+                    <div class="select-box">
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">G组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>比利时</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='比利时'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>英格兰</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='英格兰'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>巴拿马</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='巴拿马'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>突尼斯</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='突尼斯'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="select-box-list">
+                            <div class="select-box-list-title">H组</div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>哥伦比亚</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='哥伦比亚'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>日本</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='日本'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>波兰</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='波兰'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                            <div class="select-box-list-item">
+                                <div class="select-box-list-item-icon"></div>
+                                <span>塞内加尔</span>
+                                <div class="select-box-list-item-btn teamFour" data-team='塞内加尔'>
+                                    <div class="select-box-list-item-btn-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fourTeam-btn">
+                    下一题
+                </div>
+            </div>
+            <div class="container-item winner-box">
+                <div class="container-item-titleV2">选择你心中的冠军队伍</div>
+                <div class="select-box-itemV2">
+                    <div class="select-box-itemV2-icon"></div>
+                    <span class="select-box-itemV2-name">巴西</span>
+                    <div class="select-box-itemV2-btn winner" data-team='巴西'>
+                        <div class="select-box-itemV2-btn-circle"></div>
+                    </div>
+                </div>
+                <div class="select-box-itemV2">
+                    <div class="select-box-itemV2-icon"></div>
+                    <span class="select-box-itemV2-name">葡萄牙</span>
+                    <div class="select-box-itemV2-btn winner" data-team='葡萄牙'>
+                        <div class="select-box-itemV2-btn-circle"></div>
+                    </div>
+                </div>
+                <div class="select-box-itemV2">
+                    <div class="select-box-itemV2-icon"></div>
+                    <span class="select-box-itemV2-name">西班牙</span>
+                    <div class="select-box-itemV2-btn winner" data-team='西班牙'>
+                        <div class="select-box-itemV2-btn-circle"></div>
+                    </div>
+                </div>
+                <div class="select-box-itemV2">
+                    <div class="select-box-itemV2-icon"></div>
+                    <span class="select-box-itemV2-name">阿根廷</span>
+                    <div class="select-box-itemV2-btn winner" data-team='阿根廷'>
+                        <div class="select-box-itemV2-btn-circle"></div>
+                    </div>
+                </div>
+                <div class="winner-step">
+                    <div class="winner-btn winnerlast">
+                        上一题
+                    </div>
+                    <div class="winner-btn winnernext">
+                        下一题
+                    </div>
+                </div>
+
+            </div>
+            <div class="container-item best-box">
+                <div class="container-item-titleV2">选择你心中的最佳射手</div>
+                <div class="select-boxV2">
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">梅西(阿根廷)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='梅西(阿根廷)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">穆勒(德国)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='穆勒(德国)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">内马尔(巴西)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='内马尔(巴西)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">C罗(葡萄牙)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='C罗(葡萄牙)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">阿扎尔(比利时)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='阿扎尔(比利时)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-boxV2-list">
+                        <div class="select-boxV2-list-imgBox">
+
+                        </div>
+                        <div class="select-boxV2-list-item">
+                            <span class="select-boxV2-list-item-name">格列兹曼(法国)</span>
+                            <div class="select-boxV2-list-item-btn bestOne" data-team='格列兹曼(法国)'>
+                                <div class="select-boxV2-list-item-btn-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-item-remain">提示：知道您运气最好，输入联系方式便于领奖哦</div>
+                <div class="container-item-phoneBox">
+                    <input type="tel" name="" id="" placeholder="请输入手机号码" class="container-item-phoneBox-content">
+                </div>
+                <div class="container-item-btnBox">
+                    <div class="container-item-btnBox-item bestlast">上一题</div>
+                    <div class="container-item-btnBox-item bestSub">提交</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mask">
+        <div class="dialog">
+            <div class="dialog-content"></div>
+            <div class="dialog-btn">
+                确定
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var teamOneWinner = '';
+    var teamTwoWinner = '';
+    var teamThreeWinner = '';
+    var teamFourWinner = '';
+    var winnerTeam = '';
+    var bestOne = '';
+
+    $(document).ready(function () {
+        initAnswer();
+        initStartTime();
+        setInterval(initStartTime, 1000);
+        $('.discuss-btn').click(function () {
+            $('.start-box').hide();
+            $('body,html').scrollTop(0);
+            $('.fourTeam-box').show();
+        });
+        $('.fourTeam-btn').click(function () {
+            teamOneWinner = $('.teamOneWinner').text();
+            teamTwoWinner = $('.teamTwoWinner').text();
+            teamThreeWinner = $('.teamThreeWinner').text();
+            teamFourWinner = $('.teamFourWinner').text();
+            if (!teamOneWinner || !teamTwoWinner || !teamThreeWinner || !teamFourWinner) {
+                $('.dialog-content').text("存在未选择的队伍");
+                $('.mask').show();
+                return false;
+            }
+            $('.fourTeam-box').hide();
+            $('body,html').scrollTop(0);
+            $('.winner-box').show();
+        })
+        $('.winnerlast').click(function () {
+            $('.winner-box').hide();
+            $('body,html').scrollTop(0);
+            $('.fourTeam-box').show();
+        })
+        $('.winnernext').click(function () {
+            if (!winnerTeam) {
+                $('.dialog-content').text("请选择冠军队伍");
+                $('.mask').show();
+                return false;
+            }
+            $('.winner-box').hide();
+            $('body,html').scrollTop(0);
+            $('.best-box').show();
+        });
+        $('.bestlast').click(function () {
+            $('.best-box').hide();
+            $('body,html').scrollTop(0);
+            $('.winner-box').show();
+        });
+        $('.bestSub').click(function () {
+            if (!bestOne) {
+                $('.dialog-content').text("请选择最佳射手");
+                $('.mask').show();
+                return false;
+            }
+            if (!isPoneAvailable($('.container-item-phoneBox-content').val())) {
+                $('.dialog-content').html("请填写正确手机号码");
+                $('.mask').show();
+                return false;
+            };
+
+            $('.fourTeam-answer').text(teamOneWinner+'、'+teamTwoWinner+'、'+teamThreeWinner+'、'+teamFourWinner);
+            $('.winner-answer').text(winnerTeam);
+            $('.bestOne-answer').text(bestOne);
+            localStorage.setItem('fourTeam',teamOneWinner+'、'+teamTwoWinner+'、'+teamThreeWinner+'、'+teamFourWinner);
+            localStorage.setItem('winnerTeam',winnerTeam);
+            localStorage.setItem('bestOne',bestOne);
+            $('.best-box').hide();
+            $('body,html').scrollTop(0);
+            $('.discuss-btn').hide();
+            $('.discuss-content').show();
+            $('.start-box').show();
+        });
+        // 四强选择
+        $('.teamOne').click(function () {
+            $('.teamOne').find('.select-box-list-item-btn-circle').hide();
+            $(this).find('.select-box-list-item-btn-circle').show();
+            $('.teamOneWinner').text($(this).attr('data-team'));
+        })
+        $('.teamTwo').click(function () {
+            $('.teamTwo').find('.select-box-list-item-btn-circle').hide();
+            $(this).find('.select-box-list-item-btn-circle').show();
+            $('.teamTwoWinner').text($(this).attr('data-team'))
+        })
+        $('.teamThree').click(function () {
+            $('.teamThree').find('.select-box-list-item-btn-circle').hide();
+            $(this).find('.select-box-list-item-btn-circle').show();
+            $('.teamThreeWinner').text($(this).attr('data-team'))
+        })
+        $('.teamFour').click(function () {
+            $('.teamFour').find('.select-box-list-item-btn-circle').hide();
+            $(this).find('.select-box-list-item-btn-circle').show();
+            $('.teamFourWinner').text($(this).attr('data-team'))
+        });
+        // 冠军队伍
+        $('.winner').click(function () {
+            $('.winner').find('.select-box-itemV2-btn-circle').hide();
+            winnerTeam = $(this).attr('data-team');
+            $(this).find('.select-box-itemV2-btn-circle').show();
+        });
+        // 最佳射手
+        $('.bestOne').click(function () {
+            $('.bestOne').find('.select-boxV2-list-item-btn-circle').hide();
+            bestOne = $(this).attr('data-team');
+            $(this).find('.select-boxV2-list-item-btn-circle').show();
+        });
+        $('.dialog-btn').click(function () {
+            $('.mask').hide();
+        })
+    });
+    function initAnswer(){
+        var fourTeamAnswer = localStorage.getItem('fourTeam');
+        var winnerTeamAnswer = localStorage.getItem('winnerTeam');
+        var bestOneAnswer = localStorage.getItem('bestOne');
+        if(fourTeamAnswer){
+            $('.fourTeam-answer').text(fourTeamAnswer);
+            $('.winner-answer').text(winnerTeamAnswer);
+            $('.bestOne-answer').text(bestOneAnswer);
+            $('.discuss-btn').hide();
+            $('.discuss-content').show();
+        }
+    }
+    function initStartTime() {
+        var startTime = Math.floor((new Date('2018-06-19').getTime() - new Date().getTime()) / 1000);
+        var hour = Math.floor(startTime / 3600);
+        var minutes = Math.floor(startTime % 3600 / 60);
+        var second = Math.floor(startTime % 3600 % 60);
+        $('.game-hour').text(hour < 10 ? '0' + hour : hour);
+        $('.game-minutes').text(minutes < 10 ? '0' + minutes : minutes);
+        $('.game-second').text(second < 10 ? '0' + second : second);
+    }
+    function isPoneAvailable(str) {
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(str)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+</html>

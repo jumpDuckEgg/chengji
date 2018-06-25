@@ -1,0 +1,127 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
+}
+
+.main{
+   overflow: scroll;
+     /* background-color: white; */
+}
+.timeBox{
+    background-color: white;
+    width: 100%;
+    padding-top: 1px;
+    min-height: 83px;
+}
+.noSchedule{
+    margin-top: 35px;
+    text-align: center;
+    display: none;
+}
+.timeBox-title{
+    margin: 12px 10px;
+}
+.timeBox-title-left{
+    font-size: 15px;
+    color: #333333;
+    
+}
+.timeBox-title-right{
+    font-size: 14px;
+    margin-left: 8px;
+    color: #f09030;
+    font-weight: bold;
+}
+.timeBox-content{
+    margin: 16px 10px;
+
+}
+.timeBox-content-left{
+    border:2px solid #f09030;
+    border-radius: 3px;
+    padding: 5px 14px;
+    box-sizing: border-box;
+    
+} 
+.timeBox-content-left-time{
+    font-weight: bold;
+    font-size: 17px;
+    position: relative;
+    top: 1px;
+}
+.timeBox-content-left-ticketNum{
+    font-size: 14px;
+    color: #666666;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+}
+.timeBox-content-right{
+    float: right;
+    line-height: 22px;
+    font-size: 14px;
+    color: #f09030;
+    position: relative;
+    padding-right: 10px;
+}
+.timeBox-content-right-arrow{
+    font-size:30px;color: #f09030;position: absolute;top:-2px;
+    right:-2px;
+}
+.scheduleBox{
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: start;
+    justify-content: start;
+    flex-wrap:wrap;
+    padding: 5px 10px;
+}
+.scheduleBox-item{
+    background-color: #f3f3f3;
+    width: 21%;
+    margin: 14px 2%;
+    margin-top: 0px;
+    height:60px;
+    border-radius: 5px;
+    text-align: center;
+}
+.scheduleBox-item-choose{
+    background-color: #f09030;
+}
+.scheduleBox-item-choose .scheduleBox-item-time,.scheduleBox-item-choose .scheduleBox-item-ticketNum{
+    color: white;
+}
+.scheduleBox-item-time{
+    line-height: 20px;
+    margin-top: 10px;
+    color: #333333;
+}
+.scheduleBox-item-ticketNum{
+    line-height: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #666666
+}
+.scheduleBox-item-noticket .scheduleBox-item-time,.scheduleBox-item-noticket .scheduleBox-item-ticketNum{
+    color: #999999;
+}
+
+
+

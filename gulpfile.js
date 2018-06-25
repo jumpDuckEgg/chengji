@@ -53,7 +53,7 @@ gulp.task('browser-sync', ['html', 'resource', 'css', 'script'], function(){
 	});
 	//监听文件的变化
 	gulp.watch("index.html", ['html']);
-	gulp.watch("resource/**/*", ['resources']);
+	gulp.watch("resource/**/*", ['resource']);
 	gulp.watch("css/*.css", ['css']);
 	gulp.watch("js/*.js", ['script']);
 });

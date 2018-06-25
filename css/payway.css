@@ -1,0 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
+}
+
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+}
+/* 标题样式 */
+.headbar{
+    background-color: white;
+    height: 35px;
+}
+.page-back{
+    position: absolute;
+    top: 5px;
+    left:5px;
+    color: rgba(255, 157, 58, 1);
+    vertical-align: top;
+    line-height: 25px;
+}
+.page-back span{
+    margin-left:-6px;
+}
+.page-title{
+    text-align: center;
+    line-height: 35px;
+    color: #333333;
+}
+.back-icon{
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
+.payInfo{
+    margin-top: 8px;
+    height: 42px;
+    background-color: white;
+    line-height:42px;
+    font-size:0px;
+    padding: 0 10px;
+    color:#333333;
+}
+.payInfo-left{
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+}
+.payInfo-right{
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+    text-align: right;
+    color: #999999;
+}
+.payInfo-right-price{
+    color: #f09030
+}
+.payTitle{
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px;
+    color: #999999;
+    margin-left: 10px;
+}
+.payWay{
+
+}
+.payWay-item{
+    line-height: 40px;
+    height: 40px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    padding: 0 15px;
+}
+.payIcon{
+    width: 25px;
+    position: relative;
+    top: 7px;
+}
+.payName{
+    margin-left: 3px;
+    color: #333;
+    font-size: 15px;
+}
+.payArrow{
+    float: right;
+    font-size: 23px;
+    color: #cccccc;
+}

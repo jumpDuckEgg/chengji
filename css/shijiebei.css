@@ -1,0 +1,426 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: #f3f3f3; */
+    background-color: #fff;
+}
+
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+}
+.header{
+    width: 100%;
+    height: 200px;
+    background-color: aquamarine;
+}
+.container{
+    width: 90%;
+    /* height: 1048px; */
+    background-color: darkgreen;
+    margin: 25px auto;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #999999; 
+    padding-bottom: 1px;
+}
+
+/* 规则样式 */
+.container-item{
+    padding-top: 1px;
+}
+.container-item-title{
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 5px;
+    margin-left: 8px;
+}
+
+.discuss-box{
+
+}
+.discuss-btn{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 37px auto;
+    /* display: none; */
+}
+.discuss-content{
+    width: 90%;
+    border:1px solid white;
+    border-radius: 2px;
+    margin: 8px auto;
+    padding-bottom: 10px;
+    display: none;
+}
+.discuss-content-title{
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.discuss-content-answer{
+    font-size: 12px;
+    margin: 5px 8px;
+    color: white;
+}
+.rule-box{
+    width: 90%;
+    margin: 8px auto;
+}
+.rule-item{
+    margin-top: 10px;
+    color: white;
+    font-size: 13px;
+}
+.rule-item-title{
+    font-weight: bold;
+}
+.rule-item-content{
+    font-size: 12px;
+    line-height: 14px;
+    color: #ddd;
+}
+.rule-split{
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    height: 5px;
+    margin: 20px auto;
+    width: 90%;
+}
+.game-box{
+    width: 90%;
+    margin: 15px auto;
+    height: 180px;
+    border-radius: 5px;
+    background-color: #fff;
+    position: relative;
+}
+.game-remain{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 70px;
+    margin: auto;
+    background-color: #999999;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    padding-top: 10px; 
+    box-sizing: border-box;
+}
+.game-remain-content{
+    line-height: 25px;
+}
+.game-remain-time{
+    font-size: 17px;
+    margin: 0 5px;
+}
+.game-remainV2{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* 四强样式 */
+
+.fourTeam-box{
+    display: none;
+}
+
+.container-item-titleV2{
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+    margin:15px 0;
+}
+.choose-box{
+    border:1px solid white;
+    border-radius: 3px;
+    padding:5px;
+    margin:5px;
+}
+.choose-box-title{
+    border-bottom: 1px solid white;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    padding-top:2px;
+}
+.select-box{
+    font-size: 0px;
+}
+.select-box-list{
+
+    display: inline-block;
+    font-size: 12px;
+    width: 48%;
+    border:1px solid #999;
+    box-sizing: border-box;
+    margin:8px 1%;
+}
+.select-box-list-title{
+    color: white;
+    padding: 5px;
+
+    background-color: rgba(63, 75, 87, 1);
+}
+.select-box-list-item{
+    padding: 5px;
+    background-color: rgba(51, 60, 69, 1);
+    color: white;
+    border-bottom: 1px solid rgba(46, 45, 57, 1);
+    box-sizing: border-box;
+}
+.select-box-list-item-icon{
+    width: 25px;
+    height: 13px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+.select-box-list-item-btn{
+    border-radius: 50%;
+    width: 13px;
+    height:13px;
+    /* display: inline-block; */
+    float: right;
+    position: relative;
+    top: 1px;
+    border:1px solid white;
+    background-color: rgba(51, 60, 69, 1);
+}
+.select-box-list-item-btn-circle{
+    margin: 10px;
+    background-color: white;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    position: relative;
+    top: -8px;
+    left: -8px;
+    display: none;
+}
+
+.fourTeam-btn{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 37px auto;
+}
+
+/* 冠军样式 */
+.winner-box{
+    display: none;
+}
+.select-box-itemV2{
+    padding: 13px;
+    background-color: rgba(51, 60, 69, 1);
+    color: white;
+    border: 1px solid rgba(46, 45, 57, 1);
+    box-sizing: border-box;
+    width: 86%;
+    margin: auto;
+    margin-bottom: 18px;
+}
+.select-box-itemV2-name{
+    position: relative;
+    top: -5px;
+}
+.select-box-itemV2-icon{
+    width: 40px;
+    height: 25px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+.select-box-itemV2-btn{
+    border-radius: 50%;
+    width: 26px;
+    height:26px;
+    float: right;
+    position: relative;
+    top: 1px;
+    border:1px solid white;
+    background-color: rgba(51, 60, 69, 1);
+}
+.select-box-itemV2-btn-circle{
+    margin: 10px;
+    background-color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: relative;
+    top: -6px;
+    left: -6px;
+    display: none;
+}
+.winner-step{
+    margin: 40px auto; 
+}
+.winner-btn{
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    border-radius: 3px;
+    margin: 15px auto;
+}
+/* 最佳射手 */
+.best-box{
+    display: none;
+}
+.select-boxV2{
+    font-size: 0px;
+}
+.select-boxV2-list{
+
+    display: inline-block;
+    font-size: 12px;
+    width: 46%;
+    box-sizing: border-box;
+    margin:8px 2%;
+}
+.select-boxV2-list-imgBox{
+    width: 100%;
+    height: 180px;
+    background-color: white;
+}
+.select-boxV2-list-item{
+    padding: 4px;
+    background-color: rgba(51, 60, 69, 1);
+    color: white;
+    border-bottom: 1px solid rgba(46, 45, 57, 1);
+    box-sizing: border-box;
+    margin-top: 5px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.select-boxV2-list-item-name{
+/* margin-left: 25px; */
+}
+.select-boxV2-list-item-btn{
+    border-radius: 50%;
+    width: 13px;
+    height:13px;
+    /* display: inline-block; */
+    float: right;
+    position: relative;
+    top: -1px;
+    right: 5px;
+    border:1px solid white;
+    background-color: rgba(51, 60, 69, 1);
+}
+.select-boxV2-list-item-btn-circle{
+    margin: 10px;
+    background-color: white;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    position: relative;
+    top: -8px;
+    left: -8px;
+    display: none;
+}
+.container-item-remain{
+    color: white;
+    font-size: 11px;
+    margin-left: 2%;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+.container-item-phoneBox{
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    width: 96%;
+    background-color: white;
+    border-radius: 3px;
+    margin: 2% auto;
+}
+.container-item-phoneBox-content{
+    width: 96%;
+    outline: none;
+    border: 0px;
+}
+.container-item-btnBox{
+    font-size: 0px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.container-item-btnBox-item{
+    display: inline-block;
+    font-size: 15px;
+    width: 46%;
+    box-sizing: border-box;
+    margin:8px 2%;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background-color: white;
+    border-radius: 3px;
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}

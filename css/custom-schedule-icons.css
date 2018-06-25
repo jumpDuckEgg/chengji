@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'custom-schedule-icons';
+  src:  url('../resource/fonts/custom-schedule-icons.eot?4u8kec');
+  src:  url('../resource/fonts/custom-schedule-icons.eot?4u8kec#iefix') format('embedded-opentype'),
+    url('../resource/fonts/custom-schedule-icons.ttf?4u8kec') format('truetype'),
+    url('../resource/fonts/custom-schedule-icons.woff?4u8kec') format('woff'),
+    url('../resource/fonts/custom-schedule-icons.svg?4u8kec#custom-schedule-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'custom-schedule-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pullup:before {
+  content: "\e907";
+  color: #c7c7c7;
+}
+.icon-dropdown:before {
+  content: "\e90b";
+  color: #c7c7c7;
+}
+.icon-ud-station .path1:before {
+  content: "\e900";
+  color: rgb(246, 156, 66);
+}
+.icon-ud-station .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(15, 173, 250);
+}
+.icon-ud-station .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-ud-station .path4:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bg:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-upstation .path1:before {
+  content: "\e905";
+  color: rgb(15, 173, 250);
+}
+.icon-upstation .path2:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-downstation .path1:before {
+  content: "\e908";
+  color: rgb(246, 156, 66);
+}
+.icon-downstation .path2:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-line:before {
+  content: "\e90a";
+  color: #f2f2f2;
+}
+.icon-up-chose:before {
+  content: "\e90c";
+  color: #0fadfa;
+}
+.icon-down-chose:before {
+  content: "\e90d";
+  color: #f69c42;
+}

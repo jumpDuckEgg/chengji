@@ -1,0 +1,639 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+    font-size: 15px;
+    
+    -webkit-overflow-scrolling: touch;  
+}
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: #f3f3f3; */
+    background-color: #fff;
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}
+.remian-dialog{
+    width: 208px;
+    min-height: 54px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    color: white;
+    display: none;
+}
+.remian-dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+    
+}
+
+.main{
+   /* overflow: scroll; */
+     /* background-color: white; */
+     position: relative;
+     font-size: 0;
+}
+.container-box{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+}
+.bgImg{
+    width: 100%;
+    /* position: absolute; */
+    top: 0px;
+}
+.header{
+    width: 100%;
+
+}
+.header-img{
+    width: 100%;
+
+}
+.guess-box{
+    height: 27%;
+    /* height: 32%; */
+    position: relative;
+}
+.guess-box-logo{
+    width: 85%;
+    margin-left: 13%;
+    margin-top: -9%;
+    padding-top: 38%;
+}
+.guess-box-logo-img{
+    width: 86%;
+    position: absolute;
+    top: 0;
+    right: 2%;
+    z-index: 2;
+}
+.guess-box-football{
+    position: absolute;
+    right: 0;
+    width: 40%;
+    bottom: -44%;
+    /* bottom: -25%; */
+    z-index: 2;
+}
+.guess-box-rule{
+    margin-left: 7%;
+    width: 88%;
+    margin-top: -5%;
+    position: relative;
+    z-index: 4;
+    
+}
+.guess-box-rule-logo{
+    width: 100%;
+}   
+.guess-box-rule-logo-img{
+    width: 28%;
+}
+.guess-box-rule-content{
+    padding-left: 3%;
+    margin:2px auto;
+}
+.guess-box-rule-content-item{
+    color: white;
+    font-size: 11px;
+    line-height: 14px
+}
+
+.guess-box-rule-btn{
+    text-align: right;
+}
+.guess-box-rule-btn-img{
+    width: 45%;
+    margin-right: 15px;
+    margin-top: 5px;
+    z-index: 3;
+    position: relative;
+}
+.game-box{
+    height: 32%;
+    /* height: 30%; */
+    position: relative;
+}
+.game-box-logo{
+    width: 85%;
+    margin-top: -5%;
+    
+}
+.guess-box-result{
+    border:2px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 12%;
+    height: 120px;
+    transform: skew(-8deg);
+    margin-top: -5%;
+    margin-bottom: 8%;
+    position: relative;
+    display: none;
+}
+.guess-box-result-info{
+    width: 42%;
+    margin: 0 auto;
+    position: relative;
+    transform: skew(8deg);
+}
+.guess-box-result-info-img{
+    width: 100%;
+    transform: translateY(-50%)
+}
+.guess-box-result-info-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    transform: translateY(-50%);
+    color: rgba(0, 59, 131, 1);
+    font-size: 12px;
+    font-weight: bold;
+}
+.guess-box-result-content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: skew(8deg);
+    width: 90%;
+    margin: 0 auto;
+    padding:5px 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 3%;
+}
+.guess-box-result-content-item{
+    font-size: 12px;
+}
+.guess-box-result-content-item-header{
+    color: rgba(253, 219, 136, 1);
+}
+.guess-box-result-content-item-body{
+    color: white;
+}
+.game-box-logo-img{
+    width: 100%;
+  
+}
+
+.game-box-rule{
+    margin-left:8%;
+    width: 88%;
+    margin-top: -3%;
+    height: 80%;
+}
+.game-box-rule-gameEnter{
+    width: 100%;
+    margin-left: 7%;
+    position: relative;
+    margin-bottom: 3%;
+}
+.game-box-rule-gameEnter-img{
+    width: 80%;
+    position: relative;
+    z-index: 4;
+}
+.game-remain{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    background-color: #999999;
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+}
+.game-remain-content{
+    line-height: 20px;
+    font-size: 12px;
+}
+.game-remain-time{
+    font-size: 13px;
+    margin: 0 5px;
+}
+
+.game-box-rule-logo{
+    width: 100%;
+    margin-top:3%;
+}   
+.game-box-rule-logo-img{
+    width: 28%;
+}
+.game-box-rule-content{
+    padding-left: 3%;
+    margin:2px auto;
+}
+.game-box-rule-content-item{
+    color: white;
+    font-size: 11px;
+    line-height: 15px
+}
+.hongbao-box{
+    height: 27%;
+    /* height: 26%; */
+    position: relative;
+}
+.hongbao-box-logo{
+    width: 100%;
+    margin-top: -5%;
+    
+}
+.hongbao-box-logo-img{
+    width: 100%;
+}
+.hongbao-box-time{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -8%;
+}
+.hongbao-box-time-panel{
+    width: 100%;
+}
+.hongbao-box-times{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+.hongbao-box-times-panel{
+    width: 100%;
+}
+.hongbao-box-time-panel-content{
+    position: absolute;
+    top: 25%;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 85%;
+
+}
+.hongbao-box-time-panel-content-img{
+    width: 100%;
+    margin: 0 auto;
+}
+.hongbao-box-time-panel-content-time{
+    font-size: 10px;
+    position: absolute;
+    width:100%;
+    top: 48%;
+    transform: translateY(-50%);    
+    text-align: center;
+    color: rgba(255, 207, 137, 1);
+}
+.hongbao-box-time-btn{
+    position: absolute;
+    width: 50%;
+    bottom: 9%;
+    right: 8%;
+}
+
+/* 32选16页 */
+.page-32{
+    display: none;
+}
+.step-box{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -3%;
+    position: relative;
+    margin-bottom: 10%;
+}
+.step-box-img{
+    width: 100%;
+}
+.step-box-cotent{
+    text-align: center;
+    color: rgba(255, 207, 137, 1);
+    width: 55%;
+    font-size: 12px;
+    line-height: 15px;
+    position: absolute;
+    bottom: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.team-box{
+    border:2px solid white;
+    border-radius: 5px;
+    width: 94%;
+    margin:5% auto;
+    margin-bottom: 12%;
+}
+.team-box-info{
+    width: 42%;
+    margin: 0 auto;
+    position: relative;
+    /* transform: translateY(-50%) */
+}
+.team-box-info-img{
+    width: 100%;
+    transform: translateY(-50%)
+}
+.team-box-info-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    transform: translateY(-50%);
+    color: rgba(0, 59, 131, 1);
+    font-size: 18px;
+    font-weight: bold;
+}
+.team-box-content{
+    font-size: 0;
+    margin-bottom: 6%;
+    margin-top: -2%;
+}
+.team-box-content-item{
+    width: 44%;
+    display: inline-block;
+    margin:0 3%;
+    position: relative;
+}
+.team-box-content-item-img{
+    width: 100%;
+}
+.team-box-content-item-chooseSpanLeft{
+    width: 13px;
+    height: 13px;
+    background-color: rgba(0, 59, 131, 1);
+    border-radius: 50%;
+    border:2px solid white;
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 8px;
+    text-align: center;
+    line-height: 13px;
+    display: none;
+}
+.team-box-content-item-chooseSpanRight{
+    width: 13px;
+    height: 13px;
+    background-color: rgba(0, 59, 131, 1);
+    border-radius: 50%;
+    border:2px solid white;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 8px;
+    text-align: center;
+    line-height: 13px;
+    display: none;
+}
+.nextPage{
+    text-align: center;
+    margin-top: -4%;
+}
+.nextPage-btn{
+    width: 45%;
+
+}
+/* 16选8 */
+.page-16{
+    display: none;
+}
+.item-box{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -5%;
+    margin-bottom: 11%;
+}
+.item-box-bgImg{
+   width: 100%;
+}
+.item-box-cotent{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    font-size: 0;
+}
+.item-box-content-item{
+    display: inline-block;
+    width: 50%;
+    position: relative;
+}
+.item-box-content-item-imgleft{
+    width: 40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-40%,-10%);
+}
+.item-box-content-item-imgright{
+    width: 40%;
+    position: absolute;
+    top: 0;
+    right: -33%;
+    transform: translate(-40%,-10%);
+}
+.item-box-content-item-name{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10%;
+    color: #999999; 
+}
+.item-box-content-item-name_selected{
+   color: white;
+}
+
+.item-box-btnList{
+    font-size: 0;
+}
+.item-box-btnList-item{
+    display: inline-block;
+    width: 40%;
+    margin: 0 5%;
+}
+.item-box-btnList-item-img{
+    width: 100%;
+}
+/* 2选1 */
+.champion-box{
+    font-size: 0;
+    margin-top: -8%;
+    
+}
+.champion-box-item{
+    display: inline-block;
+    width: 40%;
+    margin:0 5%;
+    margin-bottom: 5%;
+    position: relative;
+}
+.champion-box-item-img{
+    width: 100%;
+}
+.champion-box-item-img-logo{
+    width: 76%;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.champion-box-item-img-name{
+    width: 100%;
+    position: absolute;
+    bottom: 6%;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+.champion-box-item-mask{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+}
+.champion-box-item-mask-hide{
+    display: none;
+}
+
+/* 最佳射手 */
+
+.best-box{
+    font-size: 0;
+    margin-top: -8%;
+    
+}
+.best-box-item{
+    display: inline-block;
+    width: 40%;
+    margin:0 5%;
+    margin-bottom: 5%;
+    position: relative;
+}
+.best-box-item-img{
+    width: 100%;
+}
+.best-box-item-img-name{
+    width: 60%;
+    position: absolute;
+    bottom: 6%;
+    text-align: center;
+    background-color: white;
+    font-size: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.best-box-item-img-name-input{
+    width: 100%;
+    outline: none;
+    border: 0;
+    text-align: center;
+}
+.best-box-item-mask{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+}
+.best-box-item-mask-hide{
+    display: none;
+}
+.page-32,.page-16,.page-8,.page-4,.page-2,.page-1{
+    display: none;
+}
+.container-item-remain{
+    color: white;
+    font-size: 12px;
+    margin-left: 5%;  
+    margin-bottom: 5%;    
+}
+.container-item-phoneBox{
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    width: 90%;
+    background-color: white;
+    border-radius: 3px;
+    margin: 2% auto;
+    margin-bottom: 8%;
+}
+.container-item-phoneBox-content{
+    width: 96%;
+    outline: none;
+    border: 0px;
+    font-size: 11px;
+}
+.loadingPage{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #999999;
+    z-index: 4;
+}
+.loadingPage-img{
+    width: 100%;
+}

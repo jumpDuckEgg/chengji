@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/tongqing1.css">
+    <link rel="stylesheet" href="resource/css/normalize.css">
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=7HvimsX4u5PxqLYVvUcDw1F6GnaTFYLe&s=1"></script>
+    <script src="resource/js/jquery-2.2.0.js"></script>
+    <script src="resource/js/jquery.charfirst.pinyin.js"></script>
+    <script src="resource/js/pinyin-sort.js"></script>
+    <script src="js/tongqing1.js"></script>
+    <title>如约城际</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="p-header">
+
+        </div>
+        <div class="p-content">
+            <div class="no-shuttle">
+                <img src="resource/img/shuttle/no-shuttle.png" alt="" class="no-shuttle-img">
+                <div class="no-shuttle-content">您还未开通企业班车</div>
+            </div>
+            <div class="login-box">
+                <div class="login-box__input">
+                    <img src="resource/img/shuttle/phone.png" alt="" class="login-box__input-img">
+                    <input type="number" class="login-box__input-item login-box__input-phone" placeholder="请输入手机号码">
+                </div>
+                <div class="login-box__input">
+                    <img src="resource/img/shuttle/code.png" alt="" class="login-box__input-img">
+                    <input type="number" class="login-box__input-item login-box__input-code" placeholder="请输入验证码">
+                    <div class="login-box_btn login-box_btn--code">
+                        获取验证码
+                    </div>
+                </div>
+                <div class="login-box_btn-box">
+                    <div class="login-box_btn login-box_btn--submit">
+                        登录查看您的企业班车
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-box">
+                <div class="content-box__search">
+                    <div class="content-box__search-info">
+                        <div class="content-box__search-info-left">
+                            <div class="content-box__search-info-content">
+                                <div class="content-box__search-info-username">张洪洪</div>
+                                <div class="content-box__search-info-company">广州如约数据科技有限公司</div>
+                                <div class="content-box__search-info-rule">购票规则：每天2张</div>
+                            </div>
+                        </div>
+                        <div class="content-box__search-info-right">
+                            <div class="content-box__search-info-content">
+                                <div class="content-box__search-info-balanceBox">
+                                    <div class="content-box__search-info-title">
+                                        <img src="resource/img/shuttle/balance.png" alt="" class="content-box__search-info-title-img">可用额度</div>
+                                    <div class="content-box__search-info-balance">10688元</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box__search-box">
+                        <div class="content-box__search-box-input start-place">
+                            <img src="resource/img/shuttle/upIcon.svg" alt="" class="content-box__search-box-input-img">
+                            <span class="content-box__search-box-input-content" data-msg="start">请选择上车点</span>
+                        </div>
+                        <div class="content-box__search-box-input end-place">
+                            <img src="resource/img/shuttle/downIcon.svg" alt="" class="content-box__search-box-input-img">
+                            <span class="content-box__search-box-input-content" data-msg='end'>到达目的地</span>
+                        </div>
+                    </div>
+                    <div class="content-box__search-btn">
+                        <span class="content-box__search-btn-content">查询</span>
+                    </div>
+                </div>
+                <div class="content-box__shuttleList">
+                    <div class="content-box__shuttleList-title">
+                        定时发车
+                    </div>
+                    <div class="content-box__shuttleList-item">
+                        <div class="content-box__shuttleList-item-title">
+                            <span class="content-box__shuttleList-item-block"></span>
+                            <span class="content-box__shuttleList-item-name">广州到深圳班车</span>
+                            <span class="content-box__shuttleList-item-price">￥79
+                                <span class="content-box__shuttleList-item-price--small">起</span>
+                            </span>
+                        </div>
+                        <div class="content-box__shuttleList-item-stationInfo">
+                            <span class="content-box__shuttleList-item-remain">途径</span>
+                            <span class="content-box__shuttleList-item-station">广州天河客运站、珠江新城地铁站A口、石牌桥地铁站、深圳</span>
+                        </div>
+                        <div class="content-box__shuttleList-item-time">
+                            <span class="content-box__shuttleList-item-stationTime">首末班09:50-17:50
+                                <span class="line-split">|</span>6班/天</span>
+                            <span class="content-box__shuttleList-item-btn">点击查看班次
+                                <div class="triangle"></div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-box__shuttleList-item">
+                        <div class="content-box__shuttleList-item-title">
+                            <span class="content-box__shuttleList-item-block"></span>
+                            <span class="content-box__shuttleList-item-name">广州到深圳班车</span>
+                            <span class="content-box__shuttleList-item-price">￥79
+                                <span class="content-box__shuttleList-item-price--small">起</span>
+                            </span>
+                        </div>
+                        <div class="content-box__shuttleList-item-stationInfo">
+                            <span class="content-box__shuttleList-item-remain">途径</span>
+                            <span class="content-box__shuttleList-item-station">广州天河客运站、珠江新城地铁站A口、石牌桥地铁站、深圳</span>
+                        </div>
+                        <div class="content-box__shuttleList-item-time">
+                            <span class="content-box__shuttleList-item-stationTime">首末班09:50-17:50
+                                <span class="line-split">|</span>6班/天</span>
+                            <span class="content-box__shuttleList-item-btn">点击查看班次
+                                <div class="triangle"></div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-box__shuttleList-item">
+                        <div class="content-box__shuttleList-item-title">
+                            <span class="content-box__shuttleList-item-block"></span>
+                            <span class="content-box__shuttleList-item-name">广州到深圳班车</span>
+                            <span class="content-box__shuttleList-item-price">￥79
+                                <span class="content-box__shuttleList-item-price--small">起</span>
+                            </span>
+                        </div>
+                        <div class="content-box__shuttleList-item-stationInfo">
+                            <span class="content-box__shuttleList-item-remain">途径</span>
+                            <span class="content-box__shuttleList-item-station">广州天河客运站、珠江新城地铁站A口、石牌桥地铁站、深圳</span>
+                        </div>
+                        <div class="content-box__shuttleList-item-time">
+                            <span class="content-box__shuttleList-item-stationTime">首末班09:50-17:50
+                                <span class="line-split">|</span>6班/天</span>
+                            <span class="content-box__shuttleList-item-btn">点击查看班次
+                                <div class="triangle"></div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-footer">
+
+        </div>
+    </div>
+    <!-- 选择城市页面 -->
+    <div class="choose-city">
+        <div class="search-bar">
+            <span class="cancelbtn">取消</span>
+            <div class="search-content">
+                <img src="resource/img/shuttle/search.png" alt="" class="search-icon">
+                <input type="text" placeholder="城市/首字母/名称" class="search-input">
+            </div>
+        </div>
+        <div class="cityList loacl-data">
+            <div class="cityList-title">
+                历史记录
+            </div>
+            <div class="cityList-historyList">
+                <span class="cityList-historyList-item">凤凰城</span>
+                <span class="cityList-historyList-item">阿拉斯基</span>
+                <span class="cityList-historyList-item">古登堡</span>
+                <span class="cityList-historyList-item">凤凰城</span>
+                <span class="cityList-historyList-item">阿拉斯基</span>
+                <span class="cityList-historyList-item">古登堡</span>
+            </div>
+            <div class="cityList-title">
+                选择城市
+            </div>
+            <div class="cityList-item">
+                中山市
+            </div>
+            <div class="cityList-item">
+                江门市
+            </div>
+            <div class="cityList-item">
+                惠州市
+            </div>
+            <div class="cityList-item">
+                广州市
+            </div>
+            <div class="cityList-item">
+                阳江市
+            </div>
+            <div class="cityList-item">
+                潮州市
+            </div>
+            <div class="cityList-item">
+                汕尾市
+            </div>
+            <div class="cityList-item">
+                韶关市
+            </div>
+            <div class="cityList-item">
+                湛江市
+            </div>
+            <div class="cityList-item">
+                深圳市
+            </div>
+            <div class="cityList-item">
+                汕头市
+            </div>
+            <div class="cityList-item">
+                肇庆市
+            </div>
+            <div class="cityList-item">
+                中山市
+            </div>
+            <div class="cityList-item">
+                中山市
+            </div>
+            <div class="cityList-item">
+                中山市
+            </div>
+            <div class="cityList-item">
+                深圳市
+            </div>
+            <div class="cityList-item">
+                汕头市
+            </div>
+            <div class="cityList-item">
+                肇庆市
+            </div>
+        </div>
+        <div class="cityList select-data">
+
+        </div>
+        <div class="footer-box">
+            <div class="footer-list">
+                <div class="footer-item footer-item_select">广东</div>
+                <div class="footer-item">广西</div>
+                <div class="footer-item">湖北</div>
+                <div class="footer-item">湖南</div>
+                <div class="footer-item">广西</div>
+                <div class="footer-item">湖北</div>
+                <div class="footer-item">湖南</div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <span>广东</span>
+            <img src="resource/img/shuttle/arr-up.png" alt="" class="select-icon">
+        </div>
+    </div>
+    <!-- 选择地区页面 -->
+    <div class="choose-area" id="c-area">
+        <div class="choose-area-header">
+            <div class="choose-area-header-name">
+                <img src="/resource/img/shuttle/left.png" alt="" class="choose-area-header-back">
+                <span class="choose-area-header-name--orange">广州市</span>
+            </div>
+            <div class="choose-area-header-center">
+                选择上车点
+            </div>
+        </div>
+        <div id="letter"></div>
+        <div class="initials">
+            <ul>
+                <li>↑</li>
+            </ul>
+        </div>
+
+        <div id="station" class="sort_box">
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img " />
+                <span class="num_name" data-code="110">AAA</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">CCC</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">BBB</span>
+            </div>
+            <div class="sort_list">
+                <img src="/resource/img/shuttle/location02.svg" class="sort_list-img" />
+                <span class="num_name" data-code="110">▼BBB</span>
+            </div>
+        </div>
+        <div class="area-box">
+            <div class="area-list">
+                <div class="area-item area-item_select">天河区</div>
+                <div class="area-item">越秀区</div>
+                <div class="area-item">从化区</div>
+                <div class="area-item">黄埔区</div>
+                <div class="area-item">海珠区</div>
+                <div class="area-item">萝岗区</div>
+            </div>
+
+        </div>
+        <div class="area-choose">
+            <span>全部区域</span>
+            <img src="resource/img/shuttle/arr-up.png" alt="" class="select-icon">
+        </div>
+    </div>
+    <!-- 选择目的地 -->
+    <div class="choose-destination">
+        <div class="choose-destination-header">
+            <div class="choose-destination-header-name">
+                <img src="/resource/img/shuttle/left.png" alt="" class="choose-destination-header-back">
+            </div>
+            <div class="choose-destination-header-center">
+                选择目的地
+            </div>
+        </div>
+        <div class="choose-destination__cityList">
+            <div class="choose-destination__cityList-title">
+                选择目的地
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+            <div class="choose-destination__cityList-item">
+                中山市
+            </div>
+        </div>
+    </div>
+    <!-- 地点详情 -->
+    <div id="stationDetail">
+        <div class="black-mask" onclick="hideDetail()"></div>
+        <div id="stationDetail-box">
+            <div id="stationDetail-imgs-list">
+                <img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img1">
+                <img class="mo-img" width="100%" src="resource/img/shuttle/nopic.png" id="station_img2">
+            </div>
+            <div id="station_name" class="infoBox-title">
+                <strong></strong>
+            </div>
+            <div id="station_desp" class="infoBox-content">
+            </div>
+            <div class="goRoad">
+                到这里去 >
+            </div>
+            <div class="infoBox-btn">
+                返回
+            </div>
+        </div>
+    </div>
+    <!-- 百度地图详情 -->
+    <div class="mapV2">
+        <div class="mapV2-box">
+            <div class="mapV2-box__title">
+                <img src="resource/img/shuttle/left.png" class="mapV2-box__title-back" onclick="$('.mapV2').hide()" />
+                <span>路线导航</span>
+            </div>
+            <div id="l-map">
+            </div>
+            <div id="r-result">
+            </div>
+        </div>
+    </div>
+    <!-- 对话框 -->
+    <div class="mask">
+        <div class="dialog">
+            <div class="dialog-content"></div>
+            <div class="dialog-btn">
+                确定
+            </div>
+        </div>
+    </div>
+    <!-- 提示框 -->
+    <div class="remian-dialog">
+        <div class="remian-dialog-content"></div>
+    </div>
+    <!-- loading页面 -->
+    <div class="loading">
+        <img src="resource/img/shuttle/loading.svg" alt="" class="loading-img">
+    </div>
+</body>
+
+
+</html>

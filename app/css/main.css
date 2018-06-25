@@ -3,19 +3,441 @@
 	padding: 0;
 }
 html{
-    font-size: 14px;
+    font-size: 15px;
     
     -webkit-overflow-scrolling: touch;  
 }
-html, body, .main{
+html, body{
     position: relative;
     width: 100%;
-    /* height: 100%; */
-    /* background-color: #f3f3f3; */
-    background-color: #fff;
+    height: 100%;
+    background-color: #f3f3f3;
+    /* background-color: #fff; */
 }
-
+a, img, button, input, textarea, div {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+.loading{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255, 0.6);
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.loading-img{
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%)
+}
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    display: none;
+}
+.dialog{
+    width: 208px;
+    min-height: 124px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+}
+.dialog-btn{
+    color: #f79030;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    border-top: 2px solid #f3f3f3;
+}
+.remian-dialog{
+    width: 208px;
+    min-height: 54px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    color: white;
+    display: none;
+}
+.remian-dialog-content{
+    width: 80%;
+    margin:auto;
+    padding:30px 0;
+    text-align: center;
+    
+}
+.remian-dialog-btn{
+    width: 60%;
+    margin:auto;
+    padding:5px 0;
+    border:1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
 .main{
    /* overflow: scroll; */
      /* background-color: white; */
+     position: relative;
+     width: 100%;
+     height: 100%;  
+}
+.headbar{
+    height: 38px;
+    line-height: 38px;
+    background-color: white;
+    width: 100%;
+    color: #f79030;
+    position: relative;
+}
+.headbar-left{
+    position: absolute;
+    left: 8px;
+    top: 4px;
+}
+.headbar-left-img{
+    width: 20px;
+}
+.headbar-center{
+ text-align: center;
+ margin: 0 82px;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ white-space: nowrap;
+ color: black;
+}
+.headbar-right{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 12px;
+}
+/* 订单信息 */
+.orderInfo-box{
+    background-color: #f79030;
+    color: white;
+    padding: 0 10px;
+    width: 100%;
+    height: 160px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-top: 1px;
+}
+.orderInfo-box__time{
+    position: relative;
+    padding-top: 1px;
+    margin-top: 4px;
+}
+.orderInfo-box__time-line{
+    border-top:1px dashed white;
+    margin:10px 0;
+}
+.orderInfo-box__time-content{
+    line-height: 20px;
+    height: 20px;
+    position: absolute;
+    top:1px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+}
+.orderInfo-box__time-content--bg{
+    background-color: #f79030;
+    padding: 0 5px;
+}
+.orderInfo-box__info{
+    width: 100%;
+    height: 90px;
+    color:white;
+    font-size: 15px;
+    padding-top: 3px;
+}
+.orderInfo-box__info-item{
+    height: 26px;
+    line-height: 26px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.orderInfo-box__info-item-icon{
+    width: 14px;
+    position: relative;
+    top: 2px;
+}
+.orderInfo-box__info-item-content{
+    padding-right: 3px;
+    width: 100%;
+}
+.orderInfo-box__info-item-content-city{
+    font-size: 11px;
+}
+.orderInfo-box__info-item-place{
+    width: 9px;
+    position: relative;
+    top: 10px;
+    float: right;
+}
+.orderInfo-box__info-otherbox{
+    margin-top: 6px;
+}
+.orderInfo-box__info-otherbox-item{
+    height: 17px;
+    line-height: 17px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: rgba(255,255,255, 0.8);
+    font-size: 11px;
+}
+
+.orderInfo-box__info-otherbox-item-line{
+    float: right;
+}
+.orderInfo-box__info-otherbox-item-line-img{
+    width: 5px;
+    margin-left: 5px;
+    position: relative;
+    top: 1px;
+}
+.orderTicket-box{
+    background-color:white;
+    width: 92%;
+    min-height: 200px;
+    margin:0 auto;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 5px rgb(211, 209, 209);
+            box-shadow: 0 0 5px rgb(211, 209, 209);
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+.orderTicket-box__header{
+    line-height: 30px;
+    height: 30px;
+    border-bottom: 1px solid #eeeeee;
+    color: #999999;
+    font-size: 11px;
+    position: relative;
+}
+.orderTicket-box__header-orderNo{
+    margin-left: 10px
+}
+.orderTicket-box__header-orderPrice{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}  
+.orderTicket-box__content{
+    text-align: center;
+    padding: 25px 0;
+    position: relative;
+}
+.orderTicket-box__content-title{
+    color: #999999;
+    font-size: 11px;
+} 
+.orderTicket-box__content-number{
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+.orderTicket-box__content-lineName{
+    font-size: 12px;
+}
+.orderTicket-box__content-qrcode{
+    width: 150px;
+    height: 150px;
+    background-color: #999999;
+    margin: 20px auto;
+}
+.orderTicket-box__content-addcard-content{
+    font-size: 11px;
+    background-color: #f3f3f3;
+    color: #999999;
+    padding: 5px 7px;
+    border-radius: 15px;
+}
+.orderTicket-box__content-qrcode-img{
+    width: 150px;
+    height: 150px;
+}
+.orderTicket-box__content-flag{
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    z-index: 2;
+    width: 90px;
+}
+.orderTicket-box__operation{
+    font-size: 0px;
+    padding:50px 10%;
+    padding-bottom: 60px;
+    display: none;
+}
+.orderTicket-box__operation-item{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+}
+.orderTicket-box__operation-item-refundbtn{
+    width: 50px;
+    margin:10px auto;
+}
+.orderTicket-box__operation-item-changeticketbtn{
+    width: 50px;
+    margin:10px auto;
+}
+/* 地点详情 */
+#stationDetail {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: 10;
+	display: none;
+}
+.black-mask {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	top: 0;
+}
+
+#stationDetail-box {
+	position: fixed;
+	width: 80%;
+	left: 10%;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	background: white;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-radius: 5px;
+}
+.infoBox-title {
+    width: 90%;
+    margin: auto;
+}
+
+.infoBox-content {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 50px;
+    overflow: scroll;
+    font-size: 14px;
+    color: #999;
+}
+
+.infoBox-btn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    color: #F69C42;
+}
+.goRoad {
+    text-align: right;
+    margin-bottom: 5px;
+    color: #10a1e0;
+    cursor: pointer;
+}
+/* 百度地图详情 */
+.mapV2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    z-index: 10;
+}
+.mapV2-box{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.mapV2-box__title{
+    height: 40px;
+	line-height: 40px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+.mapV2-box__title-back{
+    position: absolute;
+	left: 10px;
+    top: 10px;
+    height: 20px;
+}
+#l-map {
+    height: 300px;
+    width: 100%;
+}
+#r-result{
+
+}
+/* 百度地图全程路线 */
+.map {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    z-index: 9;
+}
+.map-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.map-box__remain{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #feb163;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    font-size: 13px;
+    padding-left: 10px;
+    z-index: 3;
+}
+.map-box__content{
+    width: 100%;
+    height: 100%;
 }
