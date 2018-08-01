@@ -114,11 +114,27 @@ a, img, button, input, textarea, div {
 }
 .p-footer{
     width: 100%;
-    line-height: 50px;
+    line-height: 18px;
     height: 50px;
     position: fixed;
     bottom: 0;
     background-color: white;
+    font-size: 0;
+}
+.p-footer__item{
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    font-size: 13px;
+    color: #999999;
+    display: inline-block;
+    padding-top: 5px;
+}
+.p-footer__item-img{
+    width: 20px;
+}
+.p-footer__item-content{
+
 }
 /* 未开通企业班车 */
 .no-shuttle{
